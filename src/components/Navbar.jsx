@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
-const Navbar = () => {
+const Navbar = ({ onNavClick }) => {
     const links = ["Home", "About", "Skills", "Projects", "Contact"];
     const location = useLocation();
     const [indicator, setIndicator] = useState({ left: 0, width: 0 });
@@ -40,7 +40,7 @@ const Navbar = () => {
 
     return (
         <div className="fixed top-0 left-0 right-0 z-50">
-            <div className="flex justify-center items-center mt-10 mx-auto my-0 max-w-[1280px] select-none">
+            <div className="flex justify-center items-center mt-10 mx-auto my-0 max-w-[1440px] select-none">
                 <div className="relative w-[1280px] h-15 px-2.5 bg-neutral-900 rounded-[50px] outline outline-offset-[-1px] outline-black backdrop-blur-sm inline-flex justify-between items-center">
                     <h1 className="text-white text-2xl font-bold font-mulish pl-7 cursor-default">
                         Omteja<span className="text-orange-400">.</span>
@@ -66,6 +66,7 @@ const Navbar = () => {
                                     className="relative z-10 px-7 py-3 rounded-[60px] flex justify-center items-center gap-2.5 overflow-hidden cursor-pointer transition-all duration-100 ease-in-out"
                                     onMouseEnter={() => handleMouseEnter(key)}
                                     onMouseLeave={handleMouseLeave}
+                                    onClick={() => onNavClick && onNavClick()}
                                 >
                                     <div className="font-mulish text-white text-xl">
                                         {text}

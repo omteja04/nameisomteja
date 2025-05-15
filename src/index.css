@@ -6,3 +6,8 @@
     --font-mulish: "Mulish", sans-serif;
     --font-jetBrains: "JetBrains Mono", monospace;
 }
+
+html {
+    scroll-behavior: smooth;
+    
+}
