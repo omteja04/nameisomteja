@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Typewriter } from 'react-simple-typewriter'
-import omteja from '../assets/omteja3.png';
+import omteja from '../assets/omteja.png';
+import popupImg from '../assets/popupImg.png'
 
 const Home = () => {
+    const [showPopup, setShowPopup] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setShowPopup(true);
+            } else {
+                setShowPopup(false);
+            }
+        }
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     return (
-        <div>
+        <div id='home' className='pt-[7.5rem]'>
             <section className="w-full max-w-[1440px] overflow-hidden h-[84.7vh] relative flex justify-center items-end gap-16 mx-auto">
                 {/* Intro Section */}
-                <section className="absolute left-64 top-9 flex flex-col items-center gap-6">
+                <section className={`absolute left-64 top-0 flex flex-col items-center gap-6 transition-all duration-100 ease-in-out ${showPopup ? 'hidden' : 'block'}`}>
                     <div className="relative flex flex-col items-center gap-2.5">
-                        <div className='absolute -top-[10px] right-96 pointer-events-none z-0'>
+                        <div className='absolute right-96 pointer-events-none z-0'>
                             <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2.74512 20C2.74512 17 5.74512 11 2.74512 2M10.2451 23.5C14.5785 19.3333 23.4451 9.2 24.2451 2M13.2451 30.5C15.9118 30.5 23.0451 29.1 30.2451 23.5" stroke="#FEB273" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
@@ -43,7 +56,7 @@ const Home = () => {
                 </section>
 
                 {/* Left Testimonial Section */}
-                <section className="z-10 absolute left-[71px] top-[273px] flex flex-col items-start gap-6">
+                <section className={`z-10 absolute  flex flex-col items-start gap-6 transition-all duration-100 ease-in-out ${showPopup ? 'left-[71px] top-[60px]' : 'left-[71px] top-[360px]'}`}>
                     <div data-svg-wrapper className="relative">
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.135 17.445H5.1C5.22 10.44 6.6 9.285 10.905 6.735C11.4 6.435 11.565 5.805 11.265 5.295C10.98 4.8 10.335 4.635 9.84 4.935C4.77 7.935 3 9.765 3 18.48V26.565C3 29.13 5.085 31.2 7.635 31.2H12.135C14.775 31.2 16.77 29.205 16.77 26.565V22.065C16.77 19.44 14.775 17.445 12.135 17.445Z" fill="#344054" />
@@ -66,17 +79,27 @@ const Home = () => {
                         </svg>
                     </div>
 
+                    {/* Popup Image - Behind Profile Pic */}
+                    <img
+                        src={popupImg}
+                        alt="Popup visual"
+                        className={`absolute -bottom-[300px] left-[685px] transform -translate-x-1/2 w-[600px] h-[860px] transition-all duration-100 ease-in-out ${showPopup ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} z-0`}
+                    />
+
                     {/* Foreground Image */}
                     <img
                         src={omteja}
-                        alt="Omteja’s profile"
+                        alt="Omteja's profile"
                         loading="lazy"
-                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-[460px] z-10"
+                        className="absolute bottom-0 left-51/100 transform -translate-x-1/2 h-[520px] z-10"
+                        onClick={() => setShowPopup(!showPopup)}
                     />
+                    
+
                 </section>
             </section>
 
-        </div>
+        </div >
     )
 }
 
