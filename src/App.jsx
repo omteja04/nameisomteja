@@ -6,6 +6,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import FloatingResumeButton from "./components/FloatingResumeButton";
 
 const sections = ["home", "about", "skills", "projects", "contact"];
 
@@ -58,6 +59,7 @@ function ScrollSpy({ disable }) {
     return null;
 }
 
+
 export default function App() {
     const [scrollSpyDisabled, setScrollSpyDisabled] = useState(false);
     const timeoutRef = useRef(null);
@@ -79,6 +81,7 @@ export default function App() {
             <Skills />
             <Projects />
             <Contact />
+            <FloatingResumeButton />
         </Router>
     );
 }
