@@ -86,7 +86,6 @@ const Experience = () => {
                                         );
                                     })}
                                 </div>
-
                                 {/* Content */}
                                 <motion.div
                                     key={activeTab}
