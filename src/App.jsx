@@ -32,8 +32,8 @@ export default function App() {
             <Home />
             <About />
             <Skills />
-            <Projects />
             <Experience />
+            <Projects />
             <Achievements />
             <Contact />
             <FloatingResumeButton />

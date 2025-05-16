@@ -3,7 +3,15 @@ import { useLayoutEffect, useRef, useState, useEffect } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
-const links = ["Home", "About", "Skills", "Projects", "Experience", "Achievements", "Contact"];
+const links = [
+    "Home",
+    "About",
+    "Skills",
+    "Experience",
+    "Projects",
+    "Achievements",
+    "Contact",
+];
 
 const Navbar = ({ onNavClick }) => {
     const [indicator, setIndicator] = useState({ left: 0, width: 0 });
@@ -62,8 +70,15 @@ const Navbar = ({ onNavClick }) => {
                         <motion.div
                             className="absolute top-[15%] bottom-[15%] py-3 px-3 bg-orange-400 rounded-[50px] z-0"
                             initial={false}
-                            animate={{ left: indicator.left, width: indicator.width }}
-                            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                            animate={{
+                                left: indicator.left,
+                                width: indicator.width,
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 100,
+                                damping: 20,
+                            }}
                         />
 
                         {links.map((text) => {
@@ -79,8 +94,13 @@ const Navbar = ({ onNavClick }) => {
                                     className="group relative z-10 px-3 py-3 rounded-[50px] flex justify-center items-center gap-2 cursor-pointer transition-all duration-100 ease-in-out"
                                     onClick={() => handleClick()}
                                 >
-                                    <div className={`font-mulish text-base tracking-wide font-medium transition-colors duration-150 ${isActive ? "text-white" : "text-white group-hover:text-orange-400"
-                                        }`}>
+                                    <div
+                                        className={`font-mulish text-base tracking-wide font-medium transition-colors duration-150 ${
+                                            isActive
+                                                ? "text-white"
+                                                : "text-white group-hover:text-orange-400"
+                                        }`}
+                                    >
                                         {text}
                                     </div>
                                 </NavLink>

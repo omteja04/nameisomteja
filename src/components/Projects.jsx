@@ -31,9 +31,9 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-gradient-to-br from-white via-blue-50 to-white"
+            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white"
         >
-            <div className="max-w-[1280px] mx-auto my-0">
+            <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">
                 <div className="flex flex-col items-center justify-center  gap-3">
                     <motion.h1
                         className="text-black text-5xl font-bold font-mulish pl-6"
@@ -55,15 +55,18 @@ const Projects = () => {
                     />
                 </div>
 
-                <div className="max-w-[1440px] mx-auto mt-[8rem] flex flex-col gap-16 px-10">
+                <div className="max-w-[1280px] mx-auto mt-[8rem] flex flex-col gap-16 px-10">
                     {projectsData.map((project, index) => (
                         <motion.div
                             key={index}
                             className="flex flex-row justify-center items-center gap-8 relative"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.15 }}
-                            viewport={{ once: true }}
+                            transition={{
+                                duration: 0.5,
+                                delay: index * 0.15,
+                            }}
+                            viewport={{ once: true, amount: 0.32 }}
                         >
                             {/* Left: Image with Overlay */}
                             <div className="relative group">

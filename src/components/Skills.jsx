@@ -80,7 +80,7 @@ const Skills = () => {
     return (
         <section
             id="skills"
-            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-gradient-to-br from-white via-blue-50 to-white"
+            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white"
         >
             <div className="max-w-[1280px] mx-auto my-0">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">

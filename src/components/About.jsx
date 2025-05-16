@@ -4,12 +4,13 @@ import bgImage from "../assets/backgroundImg1.png";
 import { motion } from "framer-motion";
 
 const SocialIcon = ({ href, title, color, children }) => {
-    const hoverColor = {
-        gray: "hover:text-gray-700",
-        pink: "hover:text-pink-500",
-        blue: "hover:text-blue-500",
-        red: "hover:text-red-700",
-    }[color] || "";
+    const hoverColor =
+        {
+            gray: "hover:text-gray-700",
+            pink: "hover:text-pink-500",
+            blue: "hover:text-blue-500",
+            red: "hover:text-red-700",
+        }[color] || "";
 
     return (
         <a
@@ -25,12 +26,11 @@ const SocialIcon = ({ href, title, color, children }) => {
     );
 };
 
-
 const About = () => {
     return (
         <section
             id="about"
-            className="select-none scroll-mt-[20vh] pt-10  w-full max-w-full z-10 h-[70vh] flex justify-center items-end gap-16 mx-auto"
+            className="select-none scroll-mt-[20vh] pt-10  w-full max-w-full z-10 h-[70vh] flex justify-center items-end gap-16 mx-auto bg-white"
         >
             <div
                 style={{ backgroundImage: `url(${bgImage})` }}
@@ -66,29 +66,54 @@ const About = () => {
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 viewport={{ once: true }}
                             >
-                                <strong>Hello! I'm Omteja Yallapragada</strong>, a passionate Software Engineer with a strong foundation in programming, problem-solving, and modern development practices. I'm proficient in multiple programming languages and development tools, and I'm continuously expanding my skill set — currently exploring AWS Cloud Development and modern web technologies. <br /> I enjoy collaborating with cross-functional teams to create innovative products and always seek opportunities to grow my skills in dynamic environments.
+                                <strong>Hello! I'm Omteja Yallapragada</strong>,
+                                a passionate Software Engineer with a strong
+                                foundation in programming, problem-solving, and
+                                modern development practices. I'm proficient in
+                                multiple programming languages and development
+                                tools, and I'm continuously expanding my skill
+                                set — currently exploring AWS Cloud Development
+                                and modern web technologies. <br /> I enjoy
+                                collaborating with cross-functional teams to
+                                create innovative products and always seek
+                                opportunities to grow my skills in dynamic
+                                environments.
                             </motion.p>
 
                             {/* Info Boxes */}
                             <div className="flex flex-col justify-center gap-6 mt-4">
                                 {[
-                                    { title: "B.Tech. Student", subtitle: "4th Year", delay: 0.4 },
-                                    { title: "CGPA", subtitle: "8.35", delay: 0.5 },
+                                    {
+                                        title: "B.Tech. Student",
+                                        subtitle: "4th Year",
+                                        delay: 0.4,
+                                    },
+                                    {
+                                        title: "CGPA",
+                                        subtitle: "8.35",
+                                        delay: 0.5,
+                                    },
                                 ].map((item, index) => (
                                     <motion.div
                                         key={index}
                                         className="bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-2xl shadow-lg border border-orange-300 min-w-[200px] text-center"
                                         initial={{ opacity: 0, y: 30 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: item.delay }}
+                                        transition={{
+                                            duration: 0.5,
+                                            delay: item.delay,
+                                        }}
                                         viewport={{ once: true }}
                                     >
-                                        <div className="text-sm text-orange-200 font-medium">{item.title}</div>
-                                        <div className="text-2xl font-bold">{item.subtitle}</div>
+                                        <div className="text-sm text-orange-200 font-medium">
+                                            {item.title}
+                                        </div>
+                                        <div className="text-2xl font-bold">
+                                            {item.subtitle}
+                                        </div>
                                     </motion.div>
                                 ))}
                             </div>
-
                         </div>
                         <motion.div
                             className="flex items-center justify-center gap-6 mt-8"
@@ -138,18 +163,27 @@ const About = () => {
                             {/* Instagram */}
                             <SocialIcon
                                 href="https://instagram.com/nameisomteja"
-                                color='pink'
+                                color="pink"
                                 title="instagram.com/nameisomteja"
                             >
-                                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 24 24">
+                                <svg
+                                    fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    x="0px"
+                                    y="0px"
+                                    width="30px"
+                                    height="30px"
+                                    viewBox="0 0 24 24"
+                                >
                                     <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"></path>
                                 </svg>
                             </SocialIcon>
                             {/* E-Mail */}
-                            <SocialIcon href="mailto:yallapragadaomteja@gmail.com"
+                            <SocialIcon
+                                href="mailto:yallapragadaomteja@gmail.com"
                                 title="yallapragadaomteja@gmail.com"
-                                color="red" >
-
+                                color="red"
+                            >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="30px"
@@ -174,12 +208,8 @@ const About = () => {
                                         strokeLinecap="round"
                                     />
                                 </svg>
-
                             </SocialIcon>
-
-
                         </motion.div>
-
                     </div>
                 </div>
             </div>
