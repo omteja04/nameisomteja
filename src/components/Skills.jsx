@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { VscVscode } from "react-icons/vsc";
 import { SiPostman, SiMarkdown, SiExpress, SiC } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const programmingLanguages = [
     { name: "C", icon: "bx bx-code-alt" },
@@ -25,7 +25,7 @@ const databasesAndCloud = [
     { name: "MySQL", icon: null, importedIcon: <GrMysql /> },
     { name: "MongoDB", icon: "bx bxl-mongodb" },
     { name: "AWS Cloud", icon: "bx bxl-aws" },
-]
+];
 const tools = [
     { name: "Git", icon: "bx bxl-git" },
     { name: "GitHub", icon: "bx bxl-github" },
@@ -47,7 +47,12 @@ const softSkills = [
 const SkillList = ({ items }) => (
     <ul className="list-none mt-4 flex flex-wrap gap-3">
         {items.map((item, index) => {
-            const { name, icon, importedIcon, delay = 0.2 * index } = item || {};
+            const {
+                name,
+                icon,
+                importedIcon,
+                delay = 0.2 * index,
+            } = item || {};
             return (
                 <motion.li
                     key={name}
@@ -58,15 +63,18 @@ const SkillList = ({ items }) => (
                         color: "#fb923c",
                         scale: 1.05,
                         backgroundColor: "rgba(251, 146, 60, 0.1)",
-                        transition: { delay: 0, duration: 0.1 }
-                    }} transition={{ duration: 0.5, delay }}
+                        transition: { delay: 0, duration: 0.1 },
+                    }}
+                    transition={{ duration: 0.5, delay }}
                     viewport={{ once: true }}
                     title={name}
                 >
                     {icon ? (
                         <i className={`${icon} text-orange-400 text-2xl`}></i>
                     ) : (
-                        <span className="text-orange-400 text-2xl">{importedIcon}</span>
+                        <span className="text-orange-400 text-2xl">
+                            {importedIcon}
+                        </span>
                     )}
                     <span>{name}</span>
                 </motion.li>
@@ -74,7 +82,6 @@ const SkillList = ({ items }) => (
         })}
     </ul>
 );
-
 
 const Skills = () => {
     return (
@@ -91,7 +98,8 @@ const Skills = () => {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         viewport={{ once: true }}
                     >
-                        Technical <span className="text-orange-400">Skills</span>
+                        Skills &{" "}
+                        <span className="text-orange-400">Tech Stack</span>
                     </motion.h1>
                     <motion.span
                         className="h-1 bg-orange-400"
@@ -150,7 +158,9 @@ const Skills = () => {
                     <div>
                         <div className="flex items-center gap-3">
                             <span className="bg-amber-400 h-6 w-[0.5rem] rounded-sm"></span>
-                            <h2 className="text-3xl font-semibold font-mulish">Soft Skills</h2>
+                            <h2 className="text-3xl font-semibold font-mulish">
+                                Soft Skills
+                            </h2>
                         </div>
                         <SkillList items={softSkills} />
                     </div>

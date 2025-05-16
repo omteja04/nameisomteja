@@ -49,7 +49,7 @@ const Experience = () => {
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             viewport={{ once: true }}
                         >
-                            My Work{" "}
+                            Work{" "}
                             <span className="text-orange-400">Experience</span>
                         </motion.h1>
                         <motion.span
