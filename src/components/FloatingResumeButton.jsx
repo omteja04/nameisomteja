@@ -29,7 +29,7 @@ const FloatingResumeButton = () => {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
-            className="group fixed bottom-12 right-6 z-50 flex items-center bg-orange-400 text-white font-bold pl-3 py-2 rounded-full shadow-lg overflow-hidden cursor-pointer"
+            className="group fixed bottom-15 right-6 z-50 flex items-center bg-orange-400 text-white font-bold pl-3 py-2 rounded-full shadow-lg overflow-hidden cursor-pointer"
         >
             {/* File Icon */}
             <svg
@@ -45,7 +45,7 @@ const FloatingResumeButton = () => {
             <motion.span
                 initial={false}
                 animate={{ opacity: shouldShowText ? 1 : 0 }}
-                className="whitespace-nowrap flex items-center ml-2"
+                className="whitespace-nowrap flex items-center ml-2 select-none"
             >
                 Resume
                 <svg

@@ -7,8 +7,10 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import FloatingResumeButton from "./components/FloatingResumeButton";
+import Experience from "./components/Experience";
+import Achievements from "./components/Achievements";
 
-const sections = ["home", "about", "skills", "projects", "contact"];
+const sections = ["home", "about", "skills", "projects", "experience", "achievements", "contact"];
 
 function ScrollToSection() {
     const location = useLocation();
@@ -37,8 +39,8 @@ function ScrollSpy({ disable }) {
                 const el = document.getElementById(id);
                 if (!el) continue;
                 const rect = el.getBoundingClientRect();
-                // Check if section top is near middle of viewport
-                if (rect.top <= (window.innerHeight * 1) / 10 && rect.bottom >= (window.innerHeight * 1) / 10) {
+                // Check if the vertical line at 30% viewport height lies within this section
+                if (rect.top <= (window.innerHeight * 4) / 10 && rect.bottom >= (window.innerHeight * 3) / 10) {
                     currentSection = id;
                     break;
                 }
@@ -80,6 +82,8 @@ export default function App() {
             <About />
             <Skills />
             <Projects />
+            <Experience />
+            <Achievements />
             <Contact />
             <FloatingResumeButton />
         </Router>

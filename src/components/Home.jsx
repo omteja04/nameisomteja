@@ -9,8 +9,7 @@ const Home = () => {
     const [showPopup, setShowPopup] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
-            // console.log(window.scrollY);
-            if (window.scrollY > 100 && window.scrollY < 500) {
+            if (window.scrollY > 100 && window.scrollY < 560) {
                 setShowPopup(true);
             } else {
                 setShowPopup(false);
@@ -112,6 +111,7 @@ const Home = () => {
                         className="absolute bottom-0 left-51/100 transform -translate-x-1/2 h-[520px] z-10"
                         onClick={() => setShowPopup(!showPopup)}
                     />
+
 
 
                 </section>
