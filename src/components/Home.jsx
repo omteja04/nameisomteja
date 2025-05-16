@@ -19,7 +19,7 @@ const Home = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
     return (
-        <div id='home' className='pt-[7.5rem] bg-gradient-to-br from-white via-blue-50 to-white
+        <div id='home' className='pt-[7.5rem] bg-gradient-to-br from-white via-pink-50 to-white
 '>
             <section className="w-full max-w-[1440px] overflow-hidden h-[84.7vh] relative flex justify-center items-end gap-16 mx-auto">
                 {/* Intro Section */}
