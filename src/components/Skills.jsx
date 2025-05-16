@@ -85,7 +85,7 @@ const Skills = () => {
             <div className="max-w-[1280px] mx-auto my-0">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">
                     <motion.h1
-                        className="text-black text-6xl font-bold font-mulish pl-6"
+                        className="text-black text-5xl font-bold font-mulish pl-6"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -96,7 +96,7 @@ const Skills = () => {
                     <motion.span
                         className="h-1 bg-orange-400"
                         initial={{ width: 0 }}
-                        whileInView={{ width: "9rem" }}
+                        whileInView={{ width: "7rem" }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         viewport={{ once: true }}
                     />
