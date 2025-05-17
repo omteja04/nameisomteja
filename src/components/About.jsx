@@ -190,7 +190,7 @@ const About = () => {
                                     height="30px"
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    className="text-white hover:text-red-400 stroke-current transition-colors"
+                                    className=" hover:text-red-400 stroke-current transition-colors"
                                 >
                                     <path
                                         d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"

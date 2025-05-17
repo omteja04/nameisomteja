@@ -9,12 +9,14 @@ import Contact from "./components/Contact";
 import FloatingResumeButton from "./components/FloatingResumeButton";
 import Experience from "./components/Experience";
 import Achievements from "./components/Achievements";
+import Footer from "./components/Footer";
 
 function ScrollToSection() {
     const location = useLocation();
 
     useEffect(() => {
-        const sectionId = location.pathname === "/" ? "home" : location.pathname.slice(1);
+        const sectionId =
+            location.pathname === "/" ? "home" : location.pathname.slice(1);
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
@@ -36,6 +38,7 @@ export default function App() {
             <Projects />
             <Achievements />
             <Contact />
+            <Footer />
             <FloatingResumeButton />
         </Router>
     );

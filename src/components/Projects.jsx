@@ -3,8 +3,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import project1 from "../assets/UrlShortener.jpg";
 import project2 from "../assets/sushi-shinobi.jpg";
-
+import project3 from "../assets/portfolio.jpg";
 const projectsData = [
+    {
+        img: project3,
+        title: "Personal Developer Portfolio",
+        description: `Designed and developed a modern, interactive portfolio to showcase projects, skills, and experience. Optimized for performance, accessibility, and responsiveness across 15+ screen sizes and devices, with smooth animations and clean UI/UX.`,
+        services: "React • Tailwind CSS • Framer Motion • Vercel",
+        liveDemo: "https://nameisomteja.vercel.app/",
+        repo: "https://github.com/omteja04/nameisomteja",
+        overlayColor: "orange-500",
+    },
     {
         img: project1,
         title: "Serverless URL Shortener With AWS Lambda",
@@ -19,11 +28,12 @@ const projectsData = [
         img: project2,
         title: "Sushi Shinobi — Frontend Landing Page of a Restaurant ",
         description: `Designed a comprehensive and user-friendly restaurant landing page, optimized for responsiveness and tested across multiple devices to ensure consistent and smooth performance.`,
-        services: "HTML • CSS • JavaScript — AOS (Animate On Scroll)",
+        services: "HTML • CSS • JavaScript — AOS (Animate On Scroll) • Vercel",
         liveDemo: "https://sushi-shinobi.vercel.app/",
         repo: "https://github.com/omteja04/sushi-shinobi",
         overlayColor: "orange-500",
     },
+
     // Add more project objects here similarly
 ];
 
@@ -31,10 +41,10 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white"
+            className="select-none scroll-mt-[10vh] pt-10  w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white"
         >
             <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">
-                <div className="flex flex-col items-center justify-center  gap-3">
+                <div className="flex flex-col items-center justify-center  gap-6">
                     <motion.h1
                         className="text-black text-5xl font-bold font-mulish pl-6"
                         initial={{ opacity: 0, y: 40 }}
@@ -55,11 +65,15 @@ const Projects = () => {
                     />
                 </div>
 
-                <div className="max-w-[1280px] mx-auto mt-[8rem] flex flex-col gap-16 px-10">
+                <div className="max-w-[1280px] mx-auto mt-[4rem] mb-4 flex flex-col gap-16 px-10">
                     {projectsData.map((project, index) => (
                         <motion.div
                             key={index}
-                            className="flex flex-row justify-center items-center gap-8 relative"
+                            className={`flex ${
+                                index % 2 === 0
+                                    ? "flex-row"
+                                    : "flex-row-reverse"
+                            } justify-center items-center gap-8 relative`}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{

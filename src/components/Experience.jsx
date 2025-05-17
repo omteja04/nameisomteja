@@ -133,7 +133,7 @@ const Experience = () => {
                                                         (item, idx) => (
                                                             <li
                                                                 key={idx}
-                                                                className="text-gray-700 text-sm"
+                                                                className="text-gray-700 text-base"
                                                             >
                                                                 {item}
                                                             </li>
