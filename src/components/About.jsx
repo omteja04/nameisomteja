@@ -30,7 +30,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className="select-none scroll-mt-[20vh] pt-10  w-full max-w-full z-10 h-[70vh] flex justify-center items-end gap-16 mx-auto bg-white"
+            className="bg-white dark:bg-neutral-900 select-none scroll-mt-[20vh] pt-10  w-full max-w-full z-10 h-[70vh] flex justify-center items-end gap-16 mx-auto"
         >
             <div
                 style={{ backgroundImage: `url(${bgImage})` }}

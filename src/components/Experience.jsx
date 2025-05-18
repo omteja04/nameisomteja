@@ -37,13 +37,13 @@ const Experience = () => {
     return (
         <section
             id="experience"
-            className="select-none scroll-mt-[10vh]  w-full max-w-full z-10 h-fit gap-16 mx-auto "
+            className="select-none scroll-mt-[10vh] w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-900"
         >
-            <div className="bg-[#F2F4F7] rounded-4xl h-fit py-10 pb-16 ">
+            <div className="bg-[#F2F4F7] dark:bg-[#0F1115] rounded-4xl h-fit py-10 pb-16">
                 <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">
                     <div className="flex flex-col items-center justify-center pt-4 gap-6">
                         <motion.h1
-                            className="text-black text-5xl font-bold font-mulish pl-6"
+                            className="text-black dark:text-white text-5xl font-bold font-mulish pl-6"
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -74,12 +74,12 @@ const Experience = () => {
                                                     setActiveTab(index)
                                                 }
                                                 className={`cursor-pointer group flex items-center px-3 pl-5 py-2 text-left text-lg transition-all duration-300 border-l-4
-                    ${
-                        isActive
-                            ? "border-orange-500  text-orange-500 font-semibold"
-                            : "border-transparent text-gray-600 hover:bg-orange-100 hover:font-semibold hover:text-orange-500 hover:border-orange-500"
-                    }
-                `}
+                                                    ${
+                                                        isActive
+                                                            ? "border-orange-500 text-orange-500 font-semibold"
+                                                            : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-orange-100 dark:hover:bg-[#1C0E05] hover:font-semibold hover:text-orange-500 hover:border-orange-500"
+                                                    }
+                                                `}
                                             >
                                                 {exp.company}
                                             </button>
@@ -118,7 +118,7 @@ const Experience = () => {
                                                     amount: 0.2,
                                                 }}
                                             >
-                                                <h3 className="text-xl font-semibold text-black">
+                                                <h3 className="text-xl font-semibold text-black dark:text-white">
                                                     {role.role}{" "}
                                                     <span className="text-orange-400 underline hover:text-orange-500">
                                                         @
@@ -139,7 +139,7 @@ const Experience = () => {
                                                         </a>
                                                     </span>
                                                 </h3>
-                                                <p className="text-sm text-gray-500 mb-2">
+                                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
                                                     {role.period}
                                                 </p>
                                                 <ul className="list-disc list-inside space-y-2">
@@ -147,7 +147,7 @@ const Experience = () => {
                                                         (item, idx) => (
                                                             <li
                                                                 key={idx}
-                                                                className="text-gray-700 text-base"
+                                                                className="text-gray-700 dark:text-gray-200 text-base"
                                                             >
                                                                 {item}
                                                             </li>

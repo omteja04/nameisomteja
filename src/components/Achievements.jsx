@@ -130,11 +130,11 @@ const Achievements = () => {
     return (
         <section
             id="achievements"
-            className="select-none scroll-mt-[10vh] pt-10 w-full max-w-full z-10 h-[90vh] mx-auto bg-white"
+            className="select-none scroll-mt-[10vh] pt-10 w-full max-w-full z-10 h-[90vh] mx-auto bg-white dark:bg-neutral-900"
         >
             <div
                 style={{ backgroundImage: `url(${bgImage})` }}
-                className="z-10 rounded-[4rem] h-full w-full bg-cover bg-center bg-no-repeat px-4 md:px-16 py-12 flex flex-col items-center"
+                className=" border-2 border-white/30 z-10 rounded-[4rem] h-full w-full bg-cover bg-center bg-no-repeat px-4 md:px-16 py-12 flex flex-col items-center"
             >
                 {/* Title */}
                 <motion.h1

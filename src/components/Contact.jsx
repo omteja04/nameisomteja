@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 const SocialIcon = ({ href, title, color, children }) => {
     const hoverColor =
         {
-            gray: "hover:text-gray-400",
-            pink: "hover:text-pink-500",
-            blue: "hover:text-blue-500",
+            gray: "hover:text-gray-400 dark:hover:text-gray-400",
+            pink: "hover:text-pink-500 dark:hover:text-pink-500",
+            blue: "hover:text-blue-500 dark:hover:text-blue-500",
             red: "hover:text-red-700",
         }[color] || "";
 
@@ -17,7 +17,7 @@ const SocialIcon = ({ href, title, color, children }) => {
             rel="noopener noreferrer"
             aria-label={title}
             title={title}
-            className={`text-black transition-colors ${hoverColor}`}
+            className={`text-black dark:text-white transition-colors ${hoverColor}`}
         >
             {children}
         </a>
@@ -28,12 +28,12 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="bg-white select-none scroll-mt-[20vh] w-full max-w-full z-10 h-fit py-16 px-4"
+            className="bg-white dark:bg-neutral-900 select-none scroll-mt-[20vh] w-full max-w-full z-10 h-fit py-16 px-4"
         >
             <div className="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
                 {/* Section Title */}
                 <motion.h1
-                    className="text-black text-5xl font-bold font-mulish"
+                    className="text-black dark:text-white text-5xl font-bold font-mulish"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -51,7 +51,7 @@ const Contact = () => {
 
                 {/* Paragraph */}
                 <motion.p
-                    className="text-gray-700 max-w-xl text-md leading-relaxed mt-7"
+                    className="text-gray-700 dark:text-gray-200 max-w-xl text-md leading-relaxed mt-7"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
@@ -68,7 +68,7 @@ const Contact = () => {
                     href="mailto:yallapragadaomteja@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 px-10 py-4 bg-white/10 border border-orange-400 text-orange-400 font-semibold rounded-2xl shadow-lg backdrop-blur-md transition duration-300 hover:bg-orange-400 hover:text-white hover:shadow-orange-500/50"
+                    className="inline-block mt-4 px-10 py-4 bg-white/10 border border-orange-400 text-orange-400 font-semibold rounded-2xl shadow-lg backdrop-blur-md transition duration-300 hover:bg-orange-400 hover:text-white hover:shadow-orange-500/50  dark:hover:text-black"
                     initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 }}

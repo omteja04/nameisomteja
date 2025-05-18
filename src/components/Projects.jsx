@@ -41,12 +41,12 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="select-none scroll-mt-[10vh] pt-10  w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white"
+            className="select-none scroll-mt-[10vh] pt-10  w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-900"
         >
             <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">
                 <div className="flex flex-col items-center justify-center  gap-6">
                     <motion.h1
-                        className="text-black text-5xl font-bold font-mulish pl-6"
+                        className="text-black dark:text-white text-5xl font-bold font-mulish pl-6"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -65,7 +65,7 @@ const Projects = () => {
                     />
                 </div>
 
-                <div className="max-w-[1280px] mx-auto mt-[4rem] mb-4 flex flex-col gap-16 px-10">
+                <div className="max-w-[1280px] mx-auto mt-[4rem] pb-2 flex flex-col gap-16 px-10">
                     {projectsData.map((project, index) => (
                         <motion.div
                             key={index}
@@ -98,7 +98,7 @@ const Projects = () => {
                                     />
                                     {/* Black Overlay */}
                                     <div
-                                        className={`absolute inset-0 bg-${project.overlayColor} opacity-40 border-2 border-white rounded-xl z-20 group-hover:opacity-0 transition-opacity duration-300`}
+                                        className={`absolute inset-0 bg-${project.overlayColor} opacity-40 border-2 dark:border-white/20 border-black/20 rounded-xl z-20 group-hover:opacity-0 transition-opacity duration-300`}
                                     ></div>
                                 </a>
                             </div>
@@ -114,7 +114,7 @@ const Projects = () => {
                                     href={project.liveDemo}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-black hover:text-orange-500 transition-colors"
+                                    className="text-black  dark:text-white hover:text-orange-500 dark:hover:text-orange-500 transition-colors"
                                     aria-label="View Live Demo"
                                 >
                                     <h2 className="text-2xl font-bold mb-4 px-6 leading-tight">
@@ -127,12 +127,12 @@ const Projects = () => {
                                         duration: 0.3,
                                         ease: "easeInOut",
                                     }}
-                                    className="text-black mb-3 bg-white px-10 py-6 rounded-md shadow-xl cursor-pointer"
+                                    className="text-black dark:text-white mb-3 bg-white dark:bg-neutral-800 px-10 py-6 rounded-md shadow-xl cursor-pointer"
                                 >
                                     {project.description}
                                 </motion.p>
 
-                                <p className="text-black font-semibold py-2 mb-2">
+                                <p className="text-black dark:text-white font-semibold py-2 mb-2">
                                     {project.services}
                                 </p>
 
@@ -147,7 +147,7 @@ const Projects = () => {
                                         href={project.repo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-black hover:text-orange-500 transition-colors"
+                                        className="text-black dark:text-white hover:text-orange-500 transition-colors"
                                         aria-label="View GitHub Repo"
                                     >
                                         <svg
@@ -169,7 +169,7 @@ const Projects = () => {
                                         href={project.liveDemo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-black hover:text-orange-500 transition-colors"
+                                        className="text-black dark:text-white hover:text-orange-500 transition-colors"
                                         aria-label="View Live Demo"
                                     >
                                         <svg

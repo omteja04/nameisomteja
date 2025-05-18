@@ -56,7 +56,7 @@ const SkillList = ({ items }) => (
             return (
                 <motion.li
                     key={name}
-                    className="flex items-center gap-3 hover:cursor-pointer  bg-white rounded-md px-4 py-4 shadow-md text-neutral-900 font-semibold font-mulish"
+                    className="flex items-center gap-3 hover:cursor-pointer bg-white dark:bg-neutral-800 rounded-md px-4 py-4 shadow-md text-neutral-900 dark:text-white font-semibold font-mulish transition-colors duration-300"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     whileHover={{
@@ -87,12 +87,12 @@ const Skills = () => {
     return (
         <section
             id="skills"
-            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white"
+            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-900 transition-colors duration-500"
         >
             <div className="max-w-[1280px] mx-auto my-0">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">
                     <motion.h1
-                        className="text-black text-5xl font-bold font-mulish pl-6"
+                        className="text-black dark:text-white text-5xl font-bold font-mulish pl-6"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -111,11 +111,11 @@ const Skills = () => {
                 </div>
 
                 <div className="flex flex-col gap-12 pt-16 px-6 md:px-0">
-                    {/* Programming Languages */}
+                    {/* Repeat for each section */}
                     <div>
                         <div className="flex items-center gap-3">
-                            <span className="bg-amber-400 h-6 w-[0.5rem] rounded-sm"></span>
-                            <h2 className="text-3xl font-semibold font-mulish">
+                            <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
+                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
                                 Programming Languages
                             </h2>
                         </div>
@@ -125,8 +125,8 @@ const Skills = () => {
                     {/* Frontend & Backend */}
                     <div>
                         <div className="flex items-center gap-3">
-                            <span className="bg-amber-400 h-6 w-[0.5rem] rounded-sm"></span>
-                            <h2 className="text-3xl font-semibold font-mulish">
+                            <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
+                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
                                 Frontend & Backend
                             </h2>
                         </div>
@@ -135,8 +135,8 @@ const Skills = () => {
                     {/* Databases & Cloud */}
                     <div>
                         <div className="flex items-center gap-3">
-                            <span className="bg-amber-400 h-6 w-[0.5rem] rounded-sm"></span>
-                            <h2 className="text-3xl font-semibold font-mulish">
+                            <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
+                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
                                 Databases & Cloud
                             </h2>
                         </div>
@@ -146,8 +146,8 @@ const Skills = () => {
                     {/* Tools */}
                     <div>
                         <div className="flex items-center gap-3">
-                            <span className="bg-amber-400 h-6 w-[0.5rem] rounded-sm"></span>
-                            <h2 className="text-3xl font-semibold font-mulish">
+                            <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
+                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
                                 Tools
                             </h2>
                         </div>
@@ -157,8 +157,8 @@ const Skills = () => {
                     {/* Soft Skills */}
                     <div>
                         <div className="flex items-center gap-3">
-                            <span className="bg-amber-400 h-6 w-[0.5rem] rounded-sm"></span>
-                            <h2 className="text-3xl font-semibold font-mulish">
+                            <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
+                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
                                 Soft Skills
                             </h2>
                         </div>
