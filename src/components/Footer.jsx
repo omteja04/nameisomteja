@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="text-center pb-8 pt-4 bg-white dark:bg-neutral-900 ">
+        <footer className="text-center pb-8 pt-4 bg-white dark:bg-neutral-800 ">
             <a
                 href="https://github.com/omteja04/nameisomteja"
                 target="_blank"

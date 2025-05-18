@@ -37,7 +37,7 @@ const Experience = () => {
     return (
         <section
             id="experience"
-            className="select-none scroll-mt-[10vh] w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-900"
+            className="select-none scroll-mt-[10vh] w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800"
         >
             <div className="bg-[#F2F4F7] dark:bg-[#0F1115] rounded-4xl h-fit py-10 pb-16">
                 <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">

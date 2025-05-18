@@ -56,7 +56,7 @@ const SkillList = ({ items }) => (
             return (
                 <motion.li
                     key={name}
-                    className="flex items-center gap-3 hover:cursor-pointer bg-white dark:bg-neutral-800 rounded-md px-4 py-4 shadow-md text-neutral-900 dark:text-white font-semibold font-mulish transition-colors duration-300"
+                    className="flex items-center gap-3 hover:cursor-pointer bg-white dark:bg-neutral-900 rounded-md px-4 py-4 shadow-md text-neutral-900 dark:text-white font-semibold font-mulish transition-colors duration-300"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     whileHover={{
@@ -87,7 +87,7 @@ const Skills = () => {
     return (
         <section
             id="skills"
-            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-900 transition-colors duration-500"
+            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800 transition-colors duration-500"
         >
             <div className="max-w-[1280px] mx-auto my-0">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">

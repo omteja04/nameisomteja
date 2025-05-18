@@ -130,7 +130,7 @@ const Achievements = () => {
     return (
         <section
             id="achievements"
-            className="select-none scroll-mt-[10vh] pt-10 w-full max-w-full z-10 h-[90vh] mx-auto bg-white dark:bg-neutral-900"
+            className="select-none scroll-mt-[10vh] pt-10 w-full max-w-full z-10 h-[90vh] mx-auto bg-white dark:bg-neutral-800"
         >
             <div
                 style={{ backgroundImage: `url(${bgImage})` }}

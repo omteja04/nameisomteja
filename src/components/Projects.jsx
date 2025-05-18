@@ -42,7 +42,7 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="select-none scroll-mt-[10vh] pt-10  w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-900"
+            className="select-none scroll-mt-[10vh] pt-10  w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800"
         >
             <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">
                 <div className="flex flex-col items-center justify-center  gap-6">

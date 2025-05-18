@@ -28,7 +28,7 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="bg-white dark:bg-neutral-900 select-none scroll-mt-[20vh] w-full max-w-full z-10 h-fit py-16 px-4"
+            className="bg-white dark:bg-neutral-800 select-none scroll-mt-[20vh] w-full max-w-full z-10 h-fit py-16 px-4"
         >
             <div className="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
                 {/* Section Title */}
@@ -68,7 +68,7 @@ const Contact = () => {
                     href="mailto:yallapragadaomteja@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 px-10 py-4 bg-white/10 border border-orange-400 text-orange-400 font-semibold rounded-2xl shadow-lg backdrop-blur-md transition duration-300 hover:bg-orange-400 hover:text-white hover:shadow-orange-500/50  dark:hover:text-black"
+                    className="inline-block mt-4 px-10 py-4 bg-white/10 dark:bg-neutral-900/10 border border-orange-400 text-orange-400 font-semibold rounded-2xl shadow-lg backdrop-blur-md transition duration-300 hover:bg-orange-400 hover:text-white hover:shadow-orange-500/50  dark:hover:text-black"
                     initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
