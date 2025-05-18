@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const SocialIcon = ({ href, title, color, children }) => {
     const hoverColor =
         {
-            gray: "hover:text-gray-700",
+            gray: "hover:text-gray-400",
             pink: "hover:text-pink-500",
             blue: "hover:text-blue-500",
             red: "hover:text-red-700",

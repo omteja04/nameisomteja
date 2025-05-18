@@ -101,12 +101,27 @@ const Experience = () => {
                                 >
                                     {experiences[activeTab].roles.map(
                                         (role, i) => (
-                                            <div key={i}>
+                                            <motion.div
+                                                key={i}
+                                                initial={{ opacity: 0, y: 30 }}
+                                                whileInView={{
+                                                    opacity: 1,
+                                                    y: 0,
+                                                }}
+                                                transition={{
+                                                    duration: 0.6,
+                                                    ease: "easeOut",
+                                                    delay: i * 0.2,
+                                                }}
+                                                viewport={{
+                                                    once: true,
+                                                    amount: 0.2,
+                                                }}
+                                            >
                                                 <h3 className="text-xl font-semibold text-black">
-                                                    {role.role}
-                                                    <span className="text-orange-400">
-                                                        {" "}
-                                                        @{" "}
+                                                    {role.role}{" "}
+                                                    <span className="text-orange-400 underline hover:text-orange-500">
+                                                        @
                                                         <a
                                                             href={
                                                                 experiences[
@@ -115,7 +130,6 @@ const Experience = () => {
                                                             }
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className="underline hover:text-orange-500"
                                                         >
                                                             {
                                                                 experiences[
@@ -145,12 +159,13 @@ const Experience = () => {
                                                         href={role.offer}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
+                                                        title="Offer Letter"
                                                         className="text-sm text-orange-400 underline hover:text-orange-500"
                                                     >
                                                         View Offer Letter
                                                     </a>
                                                 )}
-                                            </div>
+                                            </motion.div>
                                         )
                                     )}
                                 </motion.div>

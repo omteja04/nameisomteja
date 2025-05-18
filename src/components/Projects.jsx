@@ -103,7 +103,13 @@ const Projects = () => {
                                 </a>
                             </div>
                             {/* Right: Content */}
-                            <div className="max-w-xl text-right relative z-30 -ml-16">
+                            <div
+                                className={`max-w-xl relative z-30 ${
+                                    index % 2 === 0
+                                        ? "text-right -ml-16"
+                                        : "text-left -mr-16"
+                                }`}
+                            >
                                 <a
                                     href={project.liveDemo}
                                     target="_blank"
@@ -111,7 +117,7 @@ const Projects = () => {
                                     className="text-black hover:text-orange-500 transition-colors"
                                     aria-label="View Live Demo"
                                 >
-                                    <h2 className="text-2xl font-bold mb-4 leading-tight">
+                                    <h2 className="text-2xl font-bold mb-4 px-6 leading-tight">
                                         {project.title}
                                     </h2>
                                 </a>
@@ -130,7 +136,13 @@ const Projects = () => {
                                     {project.services}
                                 </p>
 
-                                <div className="flex justify-end space-x-6 pr-6">
+                                <div
+                                    className={`flex space-x-6 ${
+                                        index % 2 === 0
+                                            ? "justify-end pr-6"
+                                            : "justify-start pl-6"
+                                    }`}
+                                >
                                     <a
                                         href={project.repo}
                                         target="_blank"
