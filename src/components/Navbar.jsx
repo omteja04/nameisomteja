@@ -73,26 +73,40 @@ const Navbar = ({ onNavClick }) => {
     };
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(({ isIntersecting, target }) => {
-                    if (isIntersecting) {
-                        const key = target.id;
-                        setActiveKey(key);
-                        updateIndicator(key);
+        const handleScroll = () => {
+            const viewportHeight = window.innerHeight;
+            let maxVisibleHeight = 0;
+            let activeSectionId = null;
+
+            links.forEach((link) => {
+                const el = document.getElementById(link.toLowerCase());
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    const visibleHeight =
+                        Math.min(rect.bottom, viewportHeight) -
+                        Math.max(rect.top, 0);
+
+                    if (
+                        visibleHeight > maxVisibleHeight &&
+                        visibleHeight > viewportHeight * 0.4
+                    ) {
+                        maxVisibleHeight = visibleHeight;
+                        activeSectionId = link.toLowerCase();
                     }
-                });
-            },
-            { threshold: 0.6 }
-        );
+                }
+            });
 
-        links.forEach((link) => {
-            const el = document.getElementById(link.toLowerCase());
-            if (el) observer.observe(el);
-        });
+            if (activeSectionId) {
+                setActiveKey(activeSectionId);
+                updateIndicator(activeSectionId);
+            }
+        };
 
-        return () => observer.disconnect();
-    }, []);
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);      
 
     useLayoutEffect(() => {
         updateIndicator(activeKey);
@@ -105,7 +119,7 @@ const Navbar = ({ onNavClick }) => {
     return (
         <div className="fixed top-0 left-0 right-0 z-50">
             <div className="flex justify-center items-center mt-10 mx-auto max-w-[1440px] select-none">
-                <div className="relative w-[1280px] h-15 px-2.5 rounded-[40px] outline outline-offset-[-1px] outline-black backdrop-blur-sm inline-flex justify-between items-center bg-black dark:bg-white">
+                <div className="relative w-[1280px] h-16 px-2.5 rounded-[40px] outline outline-offset-[-1px] outline-black backdrop-blur-sm inline-flex justify-between items-center bg-black dark:bg-white">
                     <h1 className="text-2xl font-bold font-mulish pl-6 cursor-default text-white dark:text-black">
                         Omteja<span className="text-orange-400">.</span>
                     </h1>

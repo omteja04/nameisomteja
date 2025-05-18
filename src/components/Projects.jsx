@@ -12,8 +12,9 @@ const projectsData = [
         services: "React • Tailwind CSS • Framer Motion • Vercel",
         liveDemo: "https://nameisomteja.vercel.app/",
         repo: "https://github.com/omteja04/nameisomteja",
-        overlayColor: "orange-500",
+        overlayColor: "orange-400",
     },
+
     {
         img: project1,
         title: "Serverless URL Shortener With AWS Lambda",
@@ -31,7 +32,7 @@ const projectsData = [
         services: "HTML • CSS • JavaScript — AOS (Animate On Scroll) • Vercel",
         liveDemo: "https://sushi-shinobi.vercel.app/",
         repo: "https://github.com/omteja04/sushi-shinobi",
-        overlayColor: "orange-500",
+        overlayColor: "orange-400",
     },
 
     // Add more project objects here similarly
@@ -77,10 +78,10 @@ const Projects = () => {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
-                                duration: 0.5,
-                                delay: index * 0.15,
+                                duration: 0.3,
+                                delay: index * 0.1,
                             }}
-                            viewport={{ once: true, amount: 0.32 }}
+                            viewport={{ once: true, amount: 0.28 }}
                         >
                             {/* Left: Image with Overlay */}
                             <div className="relative group">
