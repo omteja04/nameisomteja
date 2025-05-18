@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -10,36 +10,61 @@ import FloatingResumeButton from "./components/FloatingResumeButton";
 import Experience from "./components/Experience";
 import Achievements from "./components/Achievements";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
-function ScrollToSection() {
+const validSections = [
+    "home",
+    "about",
+    "skills",
+    "experience",
+    "projects",
+    "achievements",
+    "contact",
+];
+
+function ScrollToSection({ setNotFound }) {
     const location = useLocation();
 
     useEffect(() => {
-        const sectionId =
+        const path =
             location.pathname === "/" ? "home" : location.pathname.slice(1);
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+
+        if (validSections.includes(path)) {
+            setNotFound(false);
+            const element = document.getElementById(path);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        } else {
+            setNotFound(true);
         }
-    }, [location]);
+    }, [location, setNotFound]);
 
     return null;
 }
 
 export default function App() {
+    const [notFound, setNotFound] = useState(false);
+
     return (
         <Router>
-            <ScrollToSection />
+            <ScrollToSection setNotFound={setNotFound} />
             <Navbar />
-            <Home />
-            <About />
-            <Skills />
-            <Experience />
-            <Projects />
-            <Achievements />
-            <Contact />
-            <Footer />
             <FloatingResumeButton />
+            {!notFound ? (
+                <>
+                    <Home />
+                    <About />
+                    <Skills />
+                    <Experience />
+                    <Projects />
+                    <Achievements />
+                    <Contact />
+                    <Footer />
+                </>
+            ) : (
+                <NotFound />
+            )}
         </Router>
     );
 }
