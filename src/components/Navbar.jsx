@@ -151,7 +151,7 @@ const Navbar = ({ onNavClick }) => {
                     </h1>
 
                     {/* Desktop nav links - hidden on small screens */}
-                    <div className="hidden nav_break:flex relative  gap-4 pr-6 items-center">
+                    <div className="hidden break:flex relative  gap-4 pr-6 items-center">
                         <motion.div
                             className="absolute top-[15%] bottom-[15%] py-3 px-3 bg-orange-400 rounded-[50px] z-0"
                             initial={false}
@@ -193,7 +193,7 @@ const Navbar = ({ onNavClick }) => {
                         })}
 
                         {/* Dark mode toggle for desktop */}
-                        <div className="pl-4 nav_break:flex items-center justify-center">
+                        <div className="pl-4 break:flex items-center justify-center">
                             <button
                                 onClick={toggleDarkMode}
                                 className="cursor-pointer p-2 rounded-full transition text-white dark:text-black hover:text-orange-400 dark:hover:text-orange-400"
@@ -211,7 +211,7 @@ const Navbar = ({ onNavClick }) => {
                     </div>
 
                     {/* Hamburger button - visible only on small screens */}
-                    <div className="nav_break:hidden flex items-center pr-4">
+                    <div className="break:hidden flex items-center pr-4">
                         {/* Dark mode toggle for mobile */}
                         <button
                             onClick={toggleDarkMode}
@@ -246,7 +246,7 @@ const Navbar = ({ onNavClick }) => {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="nav_break:hidden bg-black dark:bg-white overflow-hidden  px-4"
+                        className="break:hidden bg-black dark:bg-white overflow-hidden rounded-b-2xl  px-4"
                     >
                         <ul className="flex flex-col py-2">
                             {links.map((text) => {

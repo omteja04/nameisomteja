@@ -72,7 +72,7 @@ const Achievements = () => {
                         {codingProfiles.map((profile, idx) => (
                             <li
                                 key={idx}
-                                className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
+                                className="flex min-w-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
                             >
                                 <span>
                                     <span className="font-bold">
@@ -84,7 +84,7 @@ const Achievements = () => {
                                     href={profile.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-orange-300 underline hover:text-orange-400 whitespace-nowrap"
+                                    className="break-words sm:whitespace-nowrap text-orange-300 underline hover:text-orange-400 whitespace-nowrap"
                                 >
                                     omteja04
                                 </a>
@@ -95,23 +95,24 @@ const Achievements = () => {
             case "Certifications":
                 return (
                     <ul className="space-y-3 text-sm sm:text-base">
-                        {" "}
                         {certifications.map((cert, idx) => (
                             <li
                                 key={idx}
-                                className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
+                                className="flex min-w-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
                             >
                                 <a
                                     href={cert.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-white hover:text-orange-200 whitespace-nowrap"
+                                    className="break-words sm:whitespace-nowrap whitespace-normal text-white hover:text-orange-200"
                                 >
                                     <span className="font-bold">
                                         {cert.title}
                                     </span>
                                 </a>
-                                <span className="italic">{cert.issuer}</span>
+                                <span className="italic text-sm text-gray-300">
+                                    {cert.issuer}
+                                </span>
                             </li>
                         ))}
                     </ul>
@@ -132,11 +133,11 @@ const Achievements = () => {
     return (
         <section
             id="achievements"
-            className="select-none scroll-mt-[10vh] pt-10 w-full max-w-full z-10 h-[600px] mx-auto bg-white dark:bg-neutral-800"
+            className="select-none scroll-mt-[10vh] py-10 w-full max-w-full z-10 h-fit  mx-auto bg-white dark:bg-neutral-800"
         >
             <div
                 style={{ backgroundImage: `url(${bgImage})` }}
-                className="border-2 border-white/30 z-10 rounded-3xl h-full w-full bg-cover bg-center bg-no-repeat px-4 sm:px-8 md:px-16 py-6 sm:py-10 md:py-12 flex flex-col items-center"
+                className="border-2 border-white/30 z-10 rounded-3xl h-full w-full bg-cover bg-center bg-no-repeat px-4 sm:px-8 md:px-16 py-12 sm:py-10 md:py-12 flex flex-col items-center"
             >
                 {/* Title */}
                 <motion.h1

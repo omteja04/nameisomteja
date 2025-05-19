@@ -105,7 +105,7 @@ const Projects = () => {
                             </div>
                             {/* Right: Content */}
                             <div
-                                className={`max-w-xl relative z-30 ${
+                                className={`max-w-xl relative z-30 hidden break:block ${
                                     index % 2 === 0
                                         ? "text-right -ml-16"
                                         : "text-left -mr-16"
@@ -133,15 +133,15 @@ const Projects = () => {
                                     {project.description}
                                 </motion.p>
 
-                                <p className="text-black dark:text-white font-semibold py-2 mb-2">
+                                <p className="text-black dark:text-white font-semibold py-2 max-w-11/12  text-right mb-2">
                                     {project.services}
                                 </p>
 
                                 <div
                                     className={`flex space-x-6 ${
                                         index % 2 === 0
-                                            ? "justify-end pr-6"
-                                            : "justify-start pl-6"
+                                            ? "justify-end pr-10"
+                                            : "justify-start pl-10"
                                     }`}
                                 >
                                     <a
