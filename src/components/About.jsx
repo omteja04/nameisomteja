@@ -9,6 +9,19 @@ const hoverColors = {
     red: "hover:text-red-700",
 };
 
+const infoBoxes = [
+    {
+        title: "B.Tech. Student",
+        subtitle: "4th Year",
+        delay: 0.2,
+    },
+    {
+        title: "CGPA",
+        subtitle: "8.35",
+        delay: 0.4,
+    },
+];
+
 const SocialIcon = ({ href, title, color, children }) => {
     const hoverColor = hoverColors[color] || "";
 
@@ -91,18 +104,7 @@ const About = () => {
 
                             {/* Info Boxes */}
                             <div className="flex flex-row justify-center gap-6 mt-4">
-                                {[
-                                    {
-                                        title: "B.Tech. Student",
-                                        subtitle: "4th Year",
-                                        delay: 0.4,
-                                    },
-                                    {
-                                        title: "CGPA",
-                                        subtitle: "8.35",
-                                        delay: 0.2,
-                                    },
-                                ].map((item, index) => (
+                                {infoBoxes.map((item, index) => (
                                     <motion.div
                                         key={index}
                                         className="bg-white/10 backdrop-blur-sm text-white md:px-6 py-4  rounded-2xl shadow-lg border border-orange-300 min-w-[200px] text-center"
