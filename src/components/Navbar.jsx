@@ -145,7 +145,7 @@ const Navbar = ({ onNavClick }) => {
     return (
         <div className="fixed top-0 left-0 right-0 z-50">
             <div className="flex justify-center items-center mt-10 mx-auto max-w-[1440px] select-none">
-                <div className="relative w-9/10 h-16 px-2.5 rounded-[40px] outline outline-offset-[-1px] outline-black backdrop-blur-sm inline-flex justify-between items-center bg-black dark:bg-white">
+                <div className="relative w-11/12 h-16 px-2.5 rounded-[40px] outline outline-offset-[-1px] outline-black backdrop-blur-sm inline-flex justify-between items-center bg-black dark:bg-white">
                     <h1 className="text-2xl font-bold font-mulish pl-6 cursor-default text-white dark:text-black">
                         Omteja<span className="text-orange-400">.</span>
                     </h1>
