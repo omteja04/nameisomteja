@@ -176,7 +176,7 @@ const Navbar = ({ onNavClick }) => {
                                     key={key}
                                     to={path}
                                     ref={(el) => (linkRefs.current[key] = el)}
-                                    className="group relative z-10 px-3 py-3 rounded-[50px] flex justify-center items-center gap-2 cursor-pointer transition-all duration-100 ease-in-out"
+                                    className="group relative z-10 px-3 w-fit h-fit rounded-[50px] flex justify-center items-center gap-2 cursor-pointer transition-all duration-100 ease-in-out"
                                     onClick={handleClick}
                                 >
                                     <div
