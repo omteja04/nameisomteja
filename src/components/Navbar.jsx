@@ -58,10 +58,35 @@ const MoonIcon = () => (
     </motion.svg>
 );
 
+const HamburgerIcon = ({ isOpen }) => (
+    <svg
+        className="w-6 h-6 text-white dark:text-black"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+    >
+        {isOpen ? (
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+            />
+        ) : (
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+            />
+        )}
+    </svg>
+);
+
 const Navbar = ({ onNavClick }) => {
     const { isDarkMode, toggleDarkMode } = useTheme();
     const [indicator, setIndicator] = useState({ left: 0, width: 0 });
     const [activeKey, setActiveKey] = useState("home");
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const linkRefs = useRef({});
 
     const updateIndicator = (key) => {
@@ -106,7 +131,7 @@ const Navbar = ({ onNavClick }) => {
         handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);      
+    }, []);
 
     useLayoutEffect(() => {
         updateIndicator(activeKey);
@@ -114,17 +139,19 @@ const Navbar = ({ onNavClick }) => {
 
     const handleClick = () => {
         onNavClick?.();
+        setMobileMenuOpen(false); // Close mobile menu on nav click
     };
 
     return (
         <div className="fixed top-0 left-0 right-0 z-50">
             <div className="flex justify-center items-center mt-10 mx-auto max-w-[1440px] select-none">
-                <div className="relative w-[1280px] h-16 px-2.5 rounded-[40px] outline outline-offset-[-1px] outline-black backdrop-blur-sm inline-flex justify-between items-center bg-black dark:bg-white">
+                <div className="relative w-9/10 h-16 px-2.5 rounded-[40px] outline outline-offset-[-1px] outline-black backdrop-blur-sm inline-flex justify-between items-center bg-black dark:bg-white">
                     <h1 className="text-2xl font-bold font-mulish pl-6 cursor-default text-white dark:text-black">
                         Omteja<span className="text-orange-400">.</span>
                     </h1>
 
-                    <div className="relative flex gap-4 pr-6 items-center">
+                    {/* Desktop nav links - hidden on small screens */}
+                    <div className="hidden nav_break:flex relative  gap-4 pr-6 items-center">
                         <motion.div
                             className="absolute top-[15%] bottom-[15%] py-3 px-3 bg-orange-400 rounded-[50px] z-0"
                             initial={false}
@@ -165,10 +192,11 @@ const Navbar = ({ onNavClick }) => {
                             );
                         })}
 
-                        <div className="pl-4 flex items-center justify-center">
+                        {/* Dark mode toggle for desktop */}
+                        <div className="pl-4 nav_break:flex items-center justify-center">
                             <button
                                 onClick={toggleDarkMode}
-                                className="cursor-pointer  p-2 rounded-full transition text-white dark:text-black hover:text-orange-400 dark:hover:text-orange-400"
+                                className="cursor-pointer p-2 rounded-full transition text-white dark:text-black hover:text-orange-400 dark:hover:text-orange-400"
                                 title={
                                     isDarkMode
                                         ? "Switch to Light Mode"
@@ -181,8 +209,73 @@ const Navbar = ({ onNavClick }) => {
                             </button>
                         </div>
                     </div>
+
+                    {/* Hamburger button - visible only on small screens */}
+                    <div className="nav_break:hidden flex items-center pr-4">
+                        {/* Dark mode toggle for mobile */}
+                        <button
+                            onClick={toggleDarkMode}
+                            className="cursor-pointer p-2 rounded-full transition text-white dark:text-black hover:text-orange-400 dark:hover:text-orange-400 mr-3"
+                            title={
+                                isDarkMode
+                                    ? "Switch to Light Mode"
+                                    : "Switch to Dark Mode"
+                            }
+                        >
+                            <AnimatePresence mode="wait">
+                                {isDarkMode ? <SunIcon /> : <MoonIcon />}
+                            </AnimatePresence>
+                        </button>
+
+                        <button
+                            onClick={() => setMobileMenuOpen((prev) => !prev)}
+                            aria-label="Toggle menu"
+                            className="cursor-pointer p-2 rounded-md"
+                        >
+                            <HamburgerIcon isOpen={mobileMenuOpen} />
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            {/* Mobile menu - visible only on small screens */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.nav
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="nav_break:hidden bg-black dark:bg-white overflow-hidden  px-4"
+                    >
+                        <ul className="flex flex-col py-2">
+                            {links.map((text) => {
+                                const key = text.toLowerCase();
+                                const path = key === "home" ? "/" : `/${key}`;
+                                const isActive = activeKey === key;
+
+                                return (
+                                    <li key={key}>
+                                        <NavLink
+                                            to={path}
+                                            className={`block py-3 px-4 rounded-lg font-mulish font-medium text-lg transition-colors duration-150 ${
+                                                isActive
+                                                    ? "bg-orange-400 text-black dark:text-white"
+                                                    : "text-white hover:bg-orange-400 hover:text-black dark:text-black dark:hover:text-white"
+                                            }`}
+                                            onClick={() => {
+                                                handleClick();
+                                            }}
+                                        >
+                                            {text}
+                                        </NavLink>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </motion.nav>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

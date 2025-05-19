@@ -7,6 +7,7 @@
 @theme {
     --font-mulish: "Mulish", sans-serif;
     --font-jetBrains: "JetBrains Mono", monospace;
+    --breakpoint-nav_break: 67.3125rem;
 }
 
 html {
