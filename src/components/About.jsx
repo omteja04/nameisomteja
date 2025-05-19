@@ -43,16 +43,16 @@ const About = () => {
     return (
         <section
             id="about"
-            className="bg-white dark:bg-neutral-800 select-none scroll-mt-[20vh] pt-10  w-full max-w-full z-10 h-[700px] flex justify-center items-end gap-16 mx-auto"
+            className=" bg-white dark:bg-neutral-800 select-none scroll-mt-[20vh]  w-full max-w-full z-10 h-fit flex justify-center items-end gap-16 mx-auto"
         >
             <div
                 style={{
                     backgroundImage: `url(${bgImage})`,
                     backgroundColor: "#1f2937",
                 }}
-                className="border-2 border-white/30 z-10 rounded-[4rem] h-[113%] w-full bg-cover bg-center bg-no-repeat"
+                className="border-2 border-white/30 z-10 md:rounded-[4rem] rounded-[2rem] h-fit -mt-12 w-full bg-cover bg-center bg-no-repeat"
             >
-                <div className="max-w-[1440px] h-[100%] mx-auto my-0 flex flex-col items-center">
+                <div className="max-w-[1440px] h-[100%] mx-auto my-0 flex flex-col items-center pb-9">
                     <div className="flex flex-col justify-center items-start pt-16 w-11/12">
                         {/* Heading + Underline Wrapper */}
                         <div className="flex flex-col items-center gap-4">
@@ -80,9 +80,9 @@ const About = () => {
                     </div>
 
                     <div className="w-full flex justify-center items-center px-4 md:py-10 py-6">
-                        <div className="flex flex-col flex-wrap items-center justify-center text-white md:gap-10 gap-5">
+                        <div className="flex flex-col flex-wrap items-center justify-center text-white md:gap-10 sm:gap-2 gap-5">
                             <motion.p
-                                className="max-w-3xl w-11/12 md:text-lg font-mulish leading-relaxed text-base"
+                                className="max-w-3xl w-9/12 md:text-lg  font-mulish leading-relaxed text-base"
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -103,7 +103,7 @@ const About = () => {
                             </motion.p>
 
                             {/* Info Boxes */}
-                            <div className="flex flex-row justify-center gap-6 mt-4">
+                            <div className="flex md:flex-row flex-col justify-center gap-6 mt-4">
                                 {infoBoxes.map((item, index) => (
                                     <motion.div
                                         key={index}

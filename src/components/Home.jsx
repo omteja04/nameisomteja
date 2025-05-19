@@ -27,7 +27,7 @@ const Home = () => {
             className="pt-[7.5rem]
             bg-gradient-to-br 
         from-pink-100 via-purple-100 to-blue-100 
-        dark:from-[#0f0f0f] dark:via-[#1f1f1f] dark:to-[#111827]"
+        dark:from-[#0f0f0f] dark:via-[#1f1f1f] dark:to-[#111827] h-fit"
         >
             {/* Abstract Shapes Background */}
             <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">

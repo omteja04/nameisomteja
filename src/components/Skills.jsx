@@ -115,7 +115,7 @@ const Skills = () => {
                     <div>
                         <div className="flex items-center gap-3">
                             <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
-                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
+                            <h2 className="md:text-3xl text-2xl sm:text-xl font-semibold font-mulish text-black dark:text-white">
                                 Programming Languages
                             </h2>
                         </div>
