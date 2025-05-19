@@ -3,9 +3,12 @@ import { Typewriter } from "react-simple-typewriter";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import omteja from "../assets/omteja.png";
-import popupImg from "../assets/popupImg.png";
+import popupImgLight from "../assets/popupImgLight.svg";
+import popupImgDark from "../assets/popupImgDark.svg";
+import { useTheme } from "../context/ThemeContext";
 
 const Home = () => {
+    const { isDarkMode } = useTheme();
     const [showPopup, setShowPopup] = useState(false);
     useEffect(() => {
         const handleScroll = () => {
@@ -156,7 +159,7 @@ const Home = () => {
                 {/* Profile Image Section */}
                 <section className="relative w-full h-[300px] select-none">
                     {/* Background SVG */}
-                    <div className="absolute inset-0 z-0">
+                    <div className="absolute inset-0 z-0 text-[#FEB273] dark:text-orange-300">
                         <svg
                             className="opacity-70"
                             width="100%"
@@ -167,7 +170,7 @@ const Home = () => {
                         >
                             <path
                                 d="M812.673 406C542.08 406 271.487 406 0.894409 406C0.894409 181.833 182.617 0.110565 406.784 0.110565C630.95 0.110565 812.673 181.833 812.673 406Z"
-                                fill="#FEB273"
+                                fill="currentColor"
                             />
                         </svg>
                     </div>
@@ -179,7 +182,7 @@ const Home = () => {
                         className={`absolute -bottom-[300px] left-[680px] transform -translate-x-1/2 w-[620px] h-[860px] transition-all duration-150 ease-in-out ${showPopup ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-70'} z-0`}
                     /> */}
                     <motion.img
-                        src={popupImg}
+                        src={isDarkMode ? popupImgDark : popupImgLight}
                         alt="Popup visual"
                         className="absolute -bottom-[300px] left-[680px] transform -translate-x-1/2 w-[620px] h-[860px] z-0"
                         initial={{ opacity: 0, y: 70 }}

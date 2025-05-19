@@ -110,7 +110,7 @@ const Skills = () => {
                     />
                 </div>
 
-                <div className="flex flex-col gap-12 pt-16 px-6 md:px-0">
+                <div className="flex flex-col gap-12 pt-16 px-6">
                     {/* Repeat for each section */}
                     <div>
                         <div className="flex items-center gap-3">

@@ -66,10 +66,10 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="w-full flex justify-center items-center px-4 py-10">
-                        <div className="flex flex-col flex-wrap items-center justify-center text-white gap-10">
+                    <div className="w-full flex justify-center items-center px-4 md:py-10 py-6">
+                        <div className="flex flex-col flex-wrap items-center justify-center text-white md:gap-10 gap-5">
                             <motion.p
-                                className="max-w-3xl text-lg font-mulish leading-relaxed"
+                                className="max-w-3xl w-9/10 md:text-lg font-mulish leading-relaxed text-base"
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -100,24 +100,28 @@ const About = () => {
                                     {
                                         title: "CGPA",
                                         subtitle: "8.35",
-                                        delay: 0.5,
+                                        delay: 0.2,
                                     },
                                 ].map((item, index) => (
                                     <motion.div
                                         key={index}
-                                        className="bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-2xl shadow-lg border border-orange-300 min-w-[200px] text-center"
+                                        className="bg-white/10 backdrop-blur-sm text-white md:px-6 py-4  rounded-2xl shadow-lg border border-orange-300 min-w-[200px] text-center"
                                         initial={{ opacity: 0, y: 30 }}
                                         whileInView={{ opacity: 1, y: 0 }}
+                                        whileHover={{
+                                            scale: 1.05,
+                                            duration: 0.2,
+                                        }}
                                         transition={{
                                             duration: 0.5,
                                             delay: item.delay,
                                         }}
                                         viewport={{ once: true }}
                                     >
-                                        <div className="text-sm text-orange-200 font-medium">
+                                        <div className="md:text-sm text-sm text-orange-200 font-medium">
                                             {item.title}
                                         </div>
-                                        <div className="text-2xl font-bold">
+                                        <div className="md:text-2xl text-base font-bold">
                                             {item.subtitle}
                                         </div>
                                     </motion.div>
