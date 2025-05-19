@@ -2,15 +2,15 @@ import React from "react";
 import bgImage from "../assets/backgroundImg1.png";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+const hoverColors = {
+    gray: "hover:text-gray-700",
+    pink: "hover:text-pink-500",
+    blue: "hover:text-blue-500",
+    red: "hover:text-red-700",
+};
 
 const SocialIcon = ({ href, title, color, children }) => {
-    const hoverColor =
-        {
-            gray: "hover:text-gray-700",
-            pink: "hover:text-pink-500",
-            blue: "hover:text-blue-500",
-            red: "hover:text-red-700",
-        }[color] || "";
+    const hoverColor = hoverColors[color] || "";
 
     return (
         <a
@@ -30,16 +30,19 @@ const About = () => {
     return (
         <section
             id="about"
-            className="bg-white dark:bg-neutral-800 select-none scroll-mt-[20vh] pt-10  w-full max-w-full z-10 h-[70vh] flex justify-center items-end gap-16 mx-auto"
+            className="bg-white dark:bg-neutral-800 select-none scroll-mt-[20vh] pt-10  w-full max-w-full z-10 h-[90vh] flex justify-center items-end gap-16 mx-auto"
         >
             <div
-                style={{ backgroundImage: `url(${bgImage})` }}
-                className="z-10 rounded-[4rem] h-[118%] w-full bg-cover bg-center bg-no-repeat"
+                style={{
+                    backgroundImage: `url(${bgImage})`,
+                    backgroundColor: "#1f2937",
+                }}
+                className="border-2 border-white/30 z-10 rounded-[4rem] h-[113%] w-full bg-cover bg-center bg-no-repeat"
             >
                 <div className="relative max-w-[1440px] h-[100%] mx-auto my-0 flex items-center justify-center">
                     {/* Animated Heading */}
                     <motion.h1
-                        className="absolute top-[4.5rem] left-10 text-white text-5xl font-bold font-mulish pl-6"
+                        className="absolute top-[4.5rem] left-10 text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish pl-6"
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -58,7 +61,7 @@ const About = () => {
                     />
 
                     <div className="flex flex-col">
-                        <div className="flex flex-row flex-wrap items-center justify-center text-white gap-10">
+                        <div className="flex flex-col flex-wrap items-center justify-center text-white gap-10">
                             <motion.p
                                 className="max-w-3xl text-lg font-mulish leading-relaxed"
                                 initial={{ opacity: 0, y: 40 }}
@@ -81,7 +84,7 @@ const About = () => {
                             </motion.p>
 
                             {/* Info Boxes */}
-                            <div className="flex flex-col justify-center gap-6 mt-4">
+                            <div className="flex flex-row justify-center gap-6 mt-4">
                                 {[
                                     {
                                         title: "B.Tech. Student",

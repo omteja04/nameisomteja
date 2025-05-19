@@ -1,6 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+
 const SocialIcon = ({ href, title, color, children }) => {
     const hoverColor =
         {
@@ -28,12 +29,11 @@ const Contact = () => {
     return (
         <section
             id="contact"
-            className="bg-white dark:bg-neutral-800 select-none scroll-mt-[20vh] w-full max-w-full z-10 h-fit py-16 px-4"
+            className="bg-white h-fit dark:bg-neutral-800 select-none scroll-mt-[20vh] w-full z-10 py-20 px-4 sm:px-8 md:px-12"
         >
             <div className="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6">
-                {/* Section Title */}
                 <motion.h1
-                    className="text-black dark:text-white text-5xl font-bold font-mulish"
+                    className="text-black dark:text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish text-center "
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -42,16 +42,14 @@ const Contact = () => {
                     Get In <span className="text-orange-400">Touch</span>
                 </motion.h1>
                 <motion.span
-                    className=" h-1 bg-orange-400"
+                    className="h-1 bg-orange-400"
                     initial={{ width: 0 }}
                     whileInView={{ width: "7rem" }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
                 />
-
-                {/* Paragraph */}
                 <motion.p
-                    className="text-gray-700 dark:text-gray-200 max-w-xl text-md leading-relaxed mt-7"
+                    className="text-gray-700 dark:text-gray-200 text-md leading-relaxed mt-6 px-2 sm:px-0"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
@@ -62,13 +60,11 @@ const Contact = () => {
                     an opportunity, a collaboration idea, or just want to
                     connect, feel free to reach out — I'd love to hear from you!
                 </motion.p>
-
-                {/* Email Link */}
                 <motion.a
                     href="mailto:yallapragadaomteja@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 px-10 py-4 bg-white/10 dark:bg-neutral-900/10 border border-orange-400 text-orange-400 font-semibold rounded-2xl shadow-lg backdrop-blur-md transition duration-300 hover:bg-orange-400 hover:text-white hover:shadow-orange-500/50  dark:hover:text-black"
+                    className="inline-block mt-4 px-8 py-3 sm:px-10 sm:py-4 bg-white/10 dark:bg-neutral-900/10 border border-orange-400 text-orange-400 font-semibold rounded-2xl shadow-lg backdrop-blur-md transition duration-300  hover:bg-orange-400 dark:hover:bg-orange-400 hover:text-white hover:shadow-orange-500/50 dark:hover:text-black"
                     initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
@@ -76,11 +72,10 @@ const Contact = () => {
                 >
                     Say Hello
                 </motion.a>
-                {/* </div> */}
                 <motion.div
-                    className="flex items-center justify-center mt-2 gap-6"
-                    initial={{ opacity: 0, y: 0 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    className="flex flex-wrap justify-center items-center mt-4 gap-4 sm:gap-6"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.3 }}
                     viewport={{ once: true }}
                 >

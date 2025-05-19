@@ -45,7 +45,7 @@ const softSkills = [
     { name: "Critical Thinking", icon: "bx bx-brain" },
 ];
 const SkillList = ({ items }) => (
-    <ul className="list-none mt-4 flex flex-wrap gap-3">
+    <ul className="list-none mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
         {items.map((item, index) => {
             const {
                 name,
@@ -56,7 +56,7 @@ const SkillList = ({ items }) => (
             return (
                 <motion.li
                     key={name}
-                    className="flex items-center gap-3 hover:cursor-pointer bg-white dark:bg-neutral-900 rounded-md px-4 py-4 shadow-md text-neutral-900 dark:text-white font-semibold font-mulish transition-colors duration-300"
+                    className="flex items-center gap-3 hover:cursor-pointer bg-white dark:bg-neutral-900 rounded-md px-4 py-3 shadow-md text-neutral-900 dark:text-white font-semibold font-mulish transition-colors duration-300 min-w-[120px] max-w-fit text-center md:text-left"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     whileHover={{
@@ -76,7 +76,7 @@ const SkillList = ({ items }) => (
                             {importedIcon}
                         </span>
                     )}
-                    <span>{name}</span>
+                    <span className="truncate">{name}</span>
                 </motion.li>
             );
         })}
@@ -92,7 +92,7 @@ const Skills = () => {
             <div className="max-w-[1280px] mx-auto my-0">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">
                     <motion.h1
-                        className="text-black dark:text-white text-5xl font-bold font-mulish pl-6"
+                        className="text-black dark:text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish text-center "
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}

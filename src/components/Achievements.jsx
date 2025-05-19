@@ -67,11 +67,12 @@ const Achievements = () => {
         switch (activeTab) {
             case "Coding Profiles":
                 return (
-                    <ul className="space-y-3 text-sm">
+                    <ul className="space-y-3 text-sm sm:text-base">
+                        {" "}
                         {codingProfiles.map((profile, idx) => (
                             <li
                                 key={idx}
-                                className="flex justify-between items-center gap-4 text-sm text-white"
+                                className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
                             >
                                 <span>
                                     <span className="font-bold">
@@ -93,11 +94,12 @@ const Achievements = () => {
                 );
             case "Certifications":
                 return (
-                    <ul className="space-y-3 text-sm">
+                    <ul className="space-y-3 text-sm sm:text-base">
+                        {" "}
                         {certifications.map((cert, idx) => (
                             <li
                                 key={idx}
-                                className="flex justify-between items-center gap-4 text-sm text-white"
+                                className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
                             >
                                 <a
                                     href={cert.link}
@@ -116,7 +118,7 @@ const Achievements = () => {
                 );
             case "Achievements":
                 return (
-                    <ul className="list-disc list-inside space-y-3 text-sm text-white">
+                    <ul className="list-disc list-inside space-y-3 text-sm sm:text-base text-white">
                         {achievements.map((item, idx) => (
                             <li key={idx}>{item}</li>
                         ))}
@@ -134,11 +136,11 @@ const Achievements = () => {
         >
             <div
                 style={{ backgroundImage: `url(${bgImage})` }}
-                className=" border-2 border-white/30 z-10 rounded-[4rem] h-full w-full bg-cover bg-center bg-no-repeat px-4 md:px-16 py-12 flex flex-col items-center"
+                className="border-2 border-white/30 z-10 rounded-3xl h-full w-full bg-cover bg-center bg-no-repeat px-4 sm:px-8 md:px-16 py-6 sm:py-10 md:py-12 flex flex-col items-center"
             >
                 {/* Title */}
                 <motion.h1
-                    className="text-white text-5xl font-bold font-mulish mb-4"
+                    className="text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish text-center mb-4"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -157,7 +159,7 @@ const Achievements = () => {
                 />
 
                 {/* Tab Buttons */}
-                <div className="flex justify-center space-x-4 mb-8 mt-6">
+                <div className="flex flex-wrap justify-center gap-3 mb-8 mt-6">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
