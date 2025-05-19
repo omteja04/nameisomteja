@@ -37,13 +37,13 @@ const Experience = () => {
     return (
         <section
             id="experience"
-            className="select-none scroll-mt-[10vh] w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800"
+            className="select-none scroll-mt-[10vh] w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800"
         >
-            <div className="bg-[#F2F4F7] dark:bg-[#0F1115] rounded-4xl h-fit py-10 pb-16">
-                <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">
+            <div className="bg-[#F2F4F7] dark:bg-[#0F1115] rounded-4xl w-full h-fit py-10 pb-16">
+                <div className="mx-auto my-0 rounded-4xl max-w-8/10">
                     <div className="flex flex-col items-center justify-center pt-4 gap-6">
                         <motion.h1
-                            className="text-black dark:text-white text-5xl font-bold font-mulish pl-6"
+                            className="text-black dark:text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish text-center pl-6"
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -61,10 +61,10 @@ const Experience = () => {
                         />
                     </div>
                     <div className="w-full flex justify-center items-center px-4 py-16">
-                        <div className="w-full max-w-6xl flex flex-row gap-6 items-center justify-center ml-32">
-                            <div className="flex flex-row gap-6 items-start justify-center">
+                        <div className="w-full flex flex-row gap-6 items-center justify-center">
+                            <div className="flex md:flex-row  flex-col gap-6 items-start justify-center">
                                 {/* Tab List */}
-                                <div className="flex flex-col w-40">
+                                <div className="flex flex-row md:flex-col mx-auto">
                                     {experiences.map((exp, index) => {
                                         const isActive = activeTab === index;
                                         return (
@@ -73,7 +73,7 @@ const Experience = () => {
                                                 onClick={() =>
                                                     setActiveTab(index)
                                                 }
-                                                className={`cursor-pointer group flex items-center px-3 pl-5 py-2 text-left text-lg transition-all duration-300 border-l-4
+                                                className={`cursor-pointer group flex items-center px-3 py-2 text-left md:text-lg tex-sm sm:tex-base transition-all duration-300 md:border-l-4 border-b-3  md:border-b-0 
                                                     ${
                                                         isActive
                                                             ? "border-orange-500 text-orange-500 font-semibold"
@@ -89,7 +89,7 @@ const Experience = () => {
                                 {/* Content */}
                                 <motion.div
                                     key={activeTab}
-                                    className="flex-1 space-y-6 w-xl"
+                                    className="flex-1 space-y-6 max-w-xl"
                                     initial={{ opacity: 0, x: 0 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{
@@ -118,7 +118,7 @@ const Experience = () => {
                                                     amount: 0.2,
                                                 }}
                                             >
-                                                <h3 className="text-xl font-semibold text-black dark:text-white">
+                                                <h3 className="text-xl font-semibold text-black dark:text-white flex flex-wrap gap-1">
                                                     {role.role}{" "}
                                                     <span className="text-orange-400 underline hover:text-orange-500">
                                                         @
@@ -139,10 +139,10 @@ const Experience = () => {
                                                         </a>
                                                     </span>
                                                 </h3>
-                                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2 mt-1">
                                                     {role.period}
                                                 </p>
-                                                <ul className="list-disc list-inside space-y-2">
+                                                <ul className="list-disc list-inside space-y-2 flex flex-wrap">
                                                     {role.bullets.map(
                                                         (item, idx) => (
                                                             <li

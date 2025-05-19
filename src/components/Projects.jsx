@@ -47,7 +47,7 @@ const Projects = () => {
             <div className="max-w-[1280px] mx-auto my-0 rounded-4xl">
                 <div className="flex flex-col items-center justify-center  gap-6">
                     <motion.h1
-                        className="text-black dark:text-white text-5xl font-bold font-mulish pl-6"
+                        className="text-black dark:text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish text-center "
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
