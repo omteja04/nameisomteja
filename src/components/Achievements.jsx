@@ -22,7 +22,7 @@ const codingProfiles = [
     {
         name: "CodeChef",
         url: "https://www.codechef.com/users/omteja04",
-        desc: "3★, Max Rating 1669*",
+        desc: "3★, Max Rating 1700*",
     },
     {
         name: "HackerRank",
@@ -33,14 +33,9 @@ const codingProfiles = [
 
 const certifications = [
     {
-        title: "Red Hat Certified System Administrator (RHCSA)",
-        issuer: "Red Hat",
-        link: "https://rhtapps.redhat.com/verify?certId=240-110-783",
-    },
-    {
-        title: "GitHub Administration",
-        issuer: "GitHub",
-        link: "https://www.credly.com/badges/f561aab0-a5e3-4c9b-b892-88e69a024728/public_url",
+        title: "IT Specialist in Java",
+        issuer: "Certiport Pearson",
+        link: "https://www.credly.com/badges/17ee233e-54bd-4955-94a4-999a9468809f/public_url",
     },
     {
         title: "IT Specialist in HTML & CSS",
@@ -48,9 +43,24 @@ const certifications = [
         link: "https://www.credly.com/badges/aea2b491-a0e3-4ed8-8e4b-2da4ec311639/public_url",
     },
     {
-        title: "IT Specialist in Java",
-        issuer: "Certiport Pearson",
-        link: "https://www.credly.com/badges/17ee233e-54bd-4955-94a4-999a9468809f/public_url",
+        title: "Red Hat Certified System Administrator (RHCSA)",
+        issuer: "Red Hat",
+        link: "https://rhtapps.redhat.com/verify?certId=240-110-783",
+    },
+    {
+        title: "Servicenow Certified System Administrator (CSA)",
+        issuer: "Servicenow",
+        link: "#",
+    },
+    {
+        title: "Servicenow Certified Application developer (CAD)",
+        issuer: "Servicenow",
+        link: "#",
+    },
+    {
+        title: "GitHub Administration",
+        issuer: "GitHub",
+        link: "https://www.credly.com/badges/f561aab0-a5e3-4c9b-b892-88e69a024728/public_url",
     },
 ];
 
@@ -178,7 +188,7 @@ const Achievements = () => {
 
                 {/* Content Box */}
                 <motion.div
-                    className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 w-full max-w-4xl min-h-[200px]"
+                    className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 w-full max-w-4xl min-h-[260px]"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
