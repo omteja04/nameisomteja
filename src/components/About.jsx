@@ -17,7 +17,7 @@ const infoBoxes = [
     },
     {
         title: "CGPA",
-        subtitle: "8.35",
+        subtitle: "8.13",
         delay: 0.4,
     },
 ];
@@ -89,17 +89,11 @@ const About = () => {
                                 viewport={{ once: true }}
                             >
                                 <strong>Hello! I'm Omteja Yallapragada</strong>,
-                                a passionate Software Engineer with a strong
-                                foundation in programming, problem-solving, and
-                                modern development practices. I'm proficient in
-                                multiple programming languages and development
-                                tools, and I'm continuously expanding my skill
-                                set — currently exploring AWS Cloud Development
-                                and modern web technologies. <br /> I enjoy
-                                collaborating with cross-functional teams to
-                                create innovative products and always seek
-                                opportunities to grow my skills in dynamic
-                                environments.
+                                a final-semester Computer Science student and currently an Associate Product Engineer Intern at DeltaX.
+
+                                I actively practice data structures, algorithms, and competitive programming, which has strengthened my problem-solving skills and ability to reason about performance, edge cases, and system behavior.
+
+                                I'm particularly interested in backend engineering and system-level problems, continuously learning how real-world software scales and striving to build solutions that create meaningful impact.
                             </motion.p>
 
                             {/* Info Boxes */}

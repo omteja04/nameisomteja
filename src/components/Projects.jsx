@@ -3,16 +3,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import project1 from "../assets/UrlShortener.jpg";
 import project2 from "../assets/sushi-shinobi.jpg";
-import project3 from "../assets/portfolio.jpg";
+import project3 from "../assets/artzen.png";
 const projectsData = [
     {
         img: project3,
-        title: "Personal Developer Portfolio",
+        title: "Artzen - Text-to-Image SaaS App",
         description: `Designed and developed a modern, interactive portfolio to showcase projects, skills, and experience. Optimized for performance, accessibility, and responsiveness across 15+ screen sizes and devices, with smooth animations and clean UI/UX.`,
-        services: "React • Tailwind CSS • Framer Motion • Vercel",
-        liveDemo: "https://nameisomteja.vercel.app/",
-        repo: "https://github.com/omteja04/nameisomteja",
-        overlayColor: "orange-400",
+        services: "React.js • Tailwind CSS • Node.js • MongoDB",
+        liveDemo: "https://artzen.vercel.app/",
+        repo: "https://github.com/omteja04/artzen",
+        overlayColor: "black",
     },
 
     {
@@ -23,16 +23,16 @@ const projectsData = [
             "AWS Services — AWS Lambda with Node.js • DynamoDB • API Gateway",
         liveDemo: "https://omteja04.github.io/levi",
         repo: "https://github.com/omteja04/levi",
-        overlayColor: "orange-400",
+        overlayColor: "white",
     },
     {
         img: project2,
-        title: "Sushi Shinobi — Frontend Landing Page of a Restaurant ",
+        title: "Sushi Shinobi - Frontend Landing Page of a Restaurant",
         description: `Designed a comprehensive and user-friendly restaurant landing page, optimized for responsiveness and tested across multiple devices to ensure consistent and smooth performance.`,
         services: "HTML • CSS • JavaScript — AOS (Animate On Scroll) • Vercel",
         liveDemo: "https://sushi-shinobi.vercel.app/",
         repo: "https://github.com/omteja04/sushi-shinobi",
-        overlayColor: "orange-400",
+        overlayColor: "black",
     },
 
     // Add more project objects here similarly
@@ -70,11 +70,10 @@ const Projects = () => {
                     {projectsData.map((project, index) => (
                         <motion.div
                             key={index}
-                            className={`flex ${
-                                index % 2 === 0
-                                    ? "flex-row"
-                                    : "flex-row-reverse"
-                            } justify-center items-center gap-8 relative`}
+                            className={`flex ${index % 2 === 0
+                                ? "flex-row"
+                                : "flex-row-reverse"
+                                } justify-center items-center gap-8 relative`}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{
@@ -105,11 +104,10 @@ const Projects = () => {
                             </div>
                             {/* Right: Content */}
                             <div
-                                className={`max-w-xl relative z-30 hidden break:block ${
-                                    index % 2 === 0
-                                        ? "text-right -ml-16"
-                                        : "text-left -mr-16"
-                                }`}
+                                className={`max-w-xl relative z-30 hidden break:block ${index % 2 === 0
+                                    ? "text-right -ml-16"
+                                    : "text-left -mr-16"
+                                    }`}
                             >
                                 <a
                                     href={project.liveDemo}
@@ -138,11 +136,10 @@ const Projects = () => {
                                 </p>
 
                                 <div
-                                    className={`flex space-x-6 ${
-                                        index % 2 === 0
-                                            ? "justify-end pr-10"
-                                            : "justify-start pl-10"
-                                    }`}
+                                    className={`flex space-x-6 ${index % 2 === 0
+                                        ? "justify-end pr-10"
+                                        : "justify-start pl-10"
+                                        }`}
                                 >
                                     <a
                                         href={project.repo}

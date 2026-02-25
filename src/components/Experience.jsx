@@ -4,18 +4,47 @@ import { motion } from "framer-motion";
 
 const experiences = [
     {
+        company: "DeltaX",
+        link: "https://www.deltax.com/",
+        roles: [
+            {
+                role: "Associate Product Engineer Intern",
+                period: "January 2026 - Present",
+                bullets: [
+                    "Currently focusing on improving my backend development skills using C# and Microsoft SQL Server. I’m learning how to design databases properly, write efficient queries, and build backend systems that can scale. I’m also working on understanding clean architecture, performance optimization, and real-world best practices to write better, production-ready code.",
+                ],
+                offer: "https://drive.google.com/file/d/13L8BFz7NusyxWmz4IkpRHADflLo005so/view?usp=drive_link",
+            },
+        ],
+    },
+    {
+        company: "LG Soft India",
+        link: "https://www.lgsoftindia.com/",
+        roles: [
+            {
+                role: "Intern",
+                period: "July 2025 - January 2026",
+                bullets: [
+                    "Performed connectivity validation for APNs and mobile data services, resolving client-reported issues by identifying root causes and fixing defects in the source code",
+                    "Wrote C++ unit tests using GTest for telephony modules, increasing code coverage by 30% and ensuring reliable call functionality, along with implementing critical bug fixes.",
+                ],
+                offer: "https://drive.google.com/file/d/1Qac-2r1O_kUq0wjMU4eaCXHbD1v9VGVy/view?usp=drive_link",
+            },
+        ],
+    },
+    {
         company: "Technical Hub",
         link: "https://technicalhub.io/",
         roles: [
             {
-                role: "Java Intern",
+                role: "Java Student Intern",
                 period: "Aug 2024 - November 2024",
                 bullets: [
                     "Helped 2nd-year students in understanding the key concepts of Object-Oriented Programming (OOP) and Java fundamentals by creating a friendly, engaging learning environment.",
                     "Conducted 10+ coding assessments to improve students' logical thinking ability and held 5+ mock interviews to increase their confidence and communication in technical discussions.",
                     "Interacted with students individually, answering their doubts, sharing coding best practices, and guiding them toward a structured approach to problem-solving, helping them gain confidence and improve in Java.",
                 ],
-                offer: null,
+                offer: "https://drive.google.com/file/d/1BWpYTEwwtKKIZWe4UT1tJJxIDuY0vzN6/view?usp=drive_link",
             },
             {
                 role: "AWS Development Intern",
@@ -24,7 +53,7 @@ const experiences = [
                     "Gained hands-on experience with 15+ AWS services, including Amazon EC2, AWS Lambda, Amazon S3, IAM Roles and Users, VPC, DynamoDB and more.",
                     "Developed strong proficiency in deploying, managing, and optimizing cloud-based solutions using AWS infrastructure to ensure scalability, security and performance.",
                 ],
-                offer: null,
+                offer: "https://drive.google.com/file/d/1Qac-2r1O_kUq0wjMU4eaCXHbD1v9VGVy/view?usp=drive_link",
             },
         ],
     },
@@ -74,10 +103,9 @@ const Experience = () => {
                                                     setActiveTab(index)
                                                 }
                                                 className={`cursor-pointer group flex items-center px-3 py-2 text-left md:text-lg tex-sm sm:tex-base transition-all duration-300 md:border-l-4 border-b-3  md:border-b-0 
-                                                    ${
-                                                        isActive
-                                                            ? "border-orange-500 text-orange-500 font-semibold"
-                                                            : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-orange-100 dark:hover:bg-[#1C0E05] hover:font-semibold hover:text-orange-500 hover:border-orange-500"
+                                                    ${isActive
+                                                        ? "border-orange-500 text-orange-500 font-semibold"
+                                                        : "border-transparent text-gray-600 dark:text-gray-400 hover:bg-orange-100 dark:hover:bg-[#1C0E05] hover:font-semibold hover:text-orange-500 hover:border-orange-500"
                                                     }
                                                 `}
                                             >

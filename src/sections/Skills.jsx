@@ -1,55 +1,56 @@
 import React from "react";
-import { Icon } from "@iconify/react";
+import { VscVscode } from "react-icons/vsc";
+import { SiPostman, SiMarkdown, SiExpress, SiC } from "react-icons/si";
+import { GrMysql } from "react-icons/gr";
+
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const programmingLanguages = [
-    { name: "C", icon: "mdi:language-c" },
-    { name: "C++", icon: "mdi:language-cpp" },
-    { name: "C#", icon: "mdi:language-csharp" },
-    { name: "Java", icon: "mdi:language-java" },
-    { name: "Python", icon: "mdi:language-python" },
+    { name: "C", icon: "bx bx-code-alt" },
+    { name: "C++", icon: "bx bxl-c-plus-plus" },
+    { name: "Java", icon: "bx bxl-java" },
+    { name: "Python", icon: "bx bxl-python" },
 ];
 
 const frontendAndBackend = [
-    { name: "HTML5", icon: "mdi:language-html5" },
-    { name: "CSS3", icon: "mdi:language-css3" },
-    { name: "JavaScript", icon: "mdi:language-javascript" },
-    { name: "React", icon: "mdi:react" },
-    { name: "Node.js", icon: "mdi:nodejs" },
-    { name: "Express.js", icon: "simple-icons:express" },
+    { name: "HTML5", icon: "bx bxl-html5" },
+    { name: "CSS3", icon: "bx bxl-css3" },
+    { name: "JavaScript", icon: "bx bxl-javascript" },
+    { name: "React", icon: "bx bxl-react" },
+    { name: "Node.js", icon: "bx bxl-nodejs" },
+    { name: "Express.js", icon: null, importedIcon: <SiExpress /> },
 ];
-
 const databasesAndCloud = [
-    { name: "MySQL", icon: "simple-icons:mysql" },
-    { name: "MongoDB", icon: "simple-icons:mongodb" },
-    { name: "AWS Cloud", icon: "mdi:aws" },
+    { name: "MySQL", icon: null, importedIcon: <GrMysql /> },
+    { name: "MongoDB", icon: "bx bxl-mongodb" },
+    { name: "AWS Cloud", icon: "bx bxl-aws" },
 ];
-
 const tools = [
-    { name: "Git", icon: "mdi:git" },
-    { name: "GitHub", icon: "mdi:github" },
-    { name: "Figma", icon: "mdi:figma" },
-    { name: "Markdown", icon: "mdi:markdown" },
-    { name: "Postman", icon: "simple-icons:postman" },
-    { name: "VS Code", icon: "simple-icons:visualstudiocode" },
-    { name: "Linux (RedHat)", icon: "mdi:linux" },
+    { name: "Git", icon: "bx bxl-git" },
+    { name: "GitHub", icon: "bx bxl-github" },
+    { name: "Figma", icon: "bx bxl-figma" },
+    { name: "Markdown", icon: null, importedIcon: <SiMarkdown /> },
+    { name: "Postman", icon: null, importedIcon: <SiPostman /> },
+    { name: "VS Code", icon: null, importedIcon: <VscVscode /> },
+    { name: "Linux (RedHat)", icon: "bx bxl-tux" },
 ];
 
 const softSkills = [
-    { name: "Team Collaboration", icon: "mdi:account-group" },
-    { name: "Problem Solving", icon: "mdi:wrench" },
-    { name: "Effective Communication", icon: "mdi:message-text" },
-    { name: "Time Management", icon: "mdi:timer-outline" },
-    { name: "Adaptability", icon: "mdi:sync" },
-    { name: "Critical Thinking", icon: "mdi:brain" },
+    { name: "Team Collaboration", icon: "bx bx-group" },
+    { name: "Problem Solving", icon: "bx bx-wrench" },
+    { name: "Effective Communication", icon: "bx bx-message-rounded" },
+    { name: "Time Management", icon: "bx bx-timer" },
+    { name: "Adaptability", icon: "bx bx-sync" },
+    { name: "Critical Thinking", icon: "bx bx-brain" },
 ];
-
 const SkillList = ({ items }) => (
     <ul className="list-none mt-4 flex flex-wrap gap-3 justify-center md:justify-start">
         {items.map((item, index) => {
             const {
                 name,
                 icon,
+                importedIcon,
                 delay = 0.2 * index,
             } = item || {};
             return (
@@ -68,7 +69,13 @@ const SkillList = ({ items }) => (
                     viewport={{ once: true }}
                     title={name}
                 >
-                    <Icon icon={icon} className="text-orange-400 text-2xl" />
+                    {icon ? (
+                        <i className={`${icon} text-orange-400 text-2xl`}></i>
+                    ) : (
+                        <span className="text-orange-400 text-2xl">
+                            {importedIcon}
+                        </span>
+                    )}
                     <span className="truncate">{name}</span>
                 </motion.li>
             );
@@ -76,13 +83,15 @@ const SkillList = ({ items }) => (
     </ul>
 );
 
+import SectionWrapper from "../components/SectionWrapper";
+
 const Skills = () => {
     return (
-        <section
+        <SectionWrapper
             id="skills"
-            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800 transition-colors duration-500"
+            className="bg-white dark:bg-neutral-800 transition-colors duration-500 select-none pb-16"
         >
-            <div className="max-w-[1280px] mx-auto my-0">
+            <div className="w-full mx-auto my-0">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">
                     <motion.h1
                         className="text-black dark:text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish text-center "
@@ -159,7 +168,7 @@ const Skills = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </SectionWrapper>
     );
 };
 

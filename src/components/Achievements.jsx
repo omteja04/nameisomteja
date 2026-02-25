@@ -7,12 +7,12 @@ const codingProfiles = [
     {
         name: "LeetCode",
         url: "https://leetcode.com/omteja04",
-        desc: "650+ problems, Max Rating 1725*",
+        desc: "850+ problems, Max Rating 1759*",
     },
     {
         name: "GeeksforGeeks",
         url: "https://auth.geeksforgeeks.org/user/omteja04",
-        desc: "500+ problems, 3★, Rating 1708*",
+        desc: "530+ problems, 3★, Rating 1708*",
     },
     {
         name: "Codeforces",
@@ -22,7 +22,7 @@ const codingProfiles = [
     {
         name: "CodeChef",
         url: "https://www.codechef.com/users/omteja04",
-        desc: "3★, Max Rating 1700*",
+        desc: "3★, Max Rating 1740*",
     },
     {
         name: "HackerRank",
@@ -50,12 +50,12 @@ const certifications = [
     {
         title: "Servicenow Certified System Administrator (CSA)",
         issuer: "Servicenow",
-        link: "#",
+        link: "https://www.credly.com/badges/cb180a1f-3052-42de-ae4d-5a25136cccfb/public_url",
     },
     {
         title: "Servicenow Certified Application developer (CAD)",
         issuer: "Servicenow",
-        link: "#",
+        link: "https://www.credly.com/badges/e1a7787d-1fac-4ff6-a336-c3cd7218df31/public_url",
     },
     {
         title: "GitHub Administration",
@@ -175,11 +175,10 @@ const Achievements = () => {
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition duration-300 ${
-                                activeTab === tab
-                                    ? "bg-orange-400 text-white shadow-md"
-                                    : "bg-white/20 text-white hover:bg-orange-300/40"
-                            } backdrop-blur-lg border border-white/20`}
+                            className={`cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition duration-300 ${activeTab === tab
+                                ? "bg-orange-400 text-white shadow-md"
+                                : "bg-white/20 text-white hover:bg-orange-300/40"
+                                } backdrop-blur-lg border border-white/20`}
                         >
                             {tab}
                         </button>
