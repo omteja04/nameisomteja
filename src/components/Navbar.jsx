@@ -7,9 +7,10 @@ import { useTheme } from "../context/ThemeContext";
 const links = [
     "Home",
     "About",
-    "Skills",
-    "Experience",
     "Projects",
+    "Blogs",
+    "Experience",
+    "Skills",
     "Achievements",
     "Contact",
 ];
@@ -180,11 +181,10 @@ const Navbar = ({ onNavClick }) => {
                                     onClick={handleClick}
                                 >
                                     <div
-                                        className={`font-mulish text-base tracking-wide font-medium transition-colors duration-150 ${
-                                            isActive
-                                                ? "text-black dark:text-white"
-                                                : "text-white group-hover:text-orange-400 dark:group-hover:text-orange-400 dark:text-black"
-                                        }`}
+                                        className={`font-mulish text-base tracking-wide font-medium transition-colors duration-150 ${isActive
+                                            ? "text-black dark:text-white"
+                                            : "text-white group-hover:text-orange-400 dark:group-hover:text-orange-400 dark:text-black"
+                                            }`}
                                     >
                                         {text}
                                     </div>
@@ -258,11 +258,10 @@ const Navbar = ({ onNavClick }) => {
                                     <li key={key}>
                                         <NavLink
                                             to={path}
-                                            className={`block py-3 px-4 rounded-lg font-mulish font-medium text-lg transition-colors duration-150 ${
-                                                isActive
-                                                    ? "bg-orange-400 text-black dark:text-white"
-                                                    : "text-white hover:bg-orange-400 hover:text-black dark:text-black dark:hover:text-white"
-                                            }`}
+                                            className={`block py-3 px-4 rounded-lg font-mulish font-medium text-lg transition-colors duration-150 ${isActive
+                                                ? "bg-orange-400 text-black dark:text-white"
+                                                : "text-white hover:bg-orange-400 hover:text-black dark:text-black dark:hover:text-white"
+                                                }`}
                                             onClick={() => {
                                                 handleClick();
                                             }}

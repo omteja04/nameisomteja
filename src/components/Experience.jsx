@@ -46,15 +46,15 @@ const experiences = [
                 ],
                 offer: "https://drive.google.com/file/d/1BWpYTEwwtKKIZWe4UT1tJJxIDuY0vzN6/view?usp=drive_link",
             },
-            {
-                role: "AWS Development Intern",
-                period: "May 2024 - July 2024",
-                bullets: [
-                    "Gained hands-on experience with 15+ AWS services, including Amazon EC2, AWS Lambda, Amazon S3, IAM Roles and Users, VPC, DynamoDB and more.",
-                    "Developed strong proficiency in deploying, managing, and optimizing cloud-based solutions using AWS infrastructure to ensure scalability, security and performance.",
-                ],
-                offer: "https://drive.google.com/file/d/1Qac-2r1O_kUq0wjMU4eaCXHbD1v9VGVy/view?usp=drive_link",
-            },
+            // {
+            //     role: "AWS Development Intern",
+            //     period: "May 2024 - July 2024",
+            //     bullets: [
+            //         "Gained hands-on experience with 15+ AWS services, including Amazon EC2, AWS Lambda, Amazon S3, IAM Roles and Users, VPC, DynamoDB and more.",
+            //         "Developed strong proficiency in deploying, managing, and optimizing cloud-based solutions using AWS infrastructure to ensure scalability, security and performance.",
+            //     ],
+            //     offer: "https://drive.google.com/file/d/1Qac-2r1O_kUq0wjMU4eaCXHbD1v9VGVy/view?usp=drive_link",
+            // },
         ],
     },
     // Add more companies with multiple roles if needed

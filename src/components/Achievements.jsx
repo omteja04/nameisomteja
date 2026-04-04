@@ -33,16 +33,6 @@ const codingProfiles = [
 
 const certifications = [
     {
-        title: "IT Specialist in Java",
-        issuer: "Certiport Pearson",
-        link: "https://www.credly.com/badges/17ee233e-54bd-4955-94a4-999a9468809f/public_url",
-    },
-    {
-        title: "IT Specialist in HTML & CSS",
-        issuer: "Certiport Pearson",
-        link: "https://www.credly.com/badges/aea2b491-a0e3-4ed8-8e4b-2da4ec311639/public_url",
-    },
-    {
         title: "Red Hat Certified System Administrator (RHCSA)",
         issuer: "Red Hat",
         link: "https://rhtapps.redhat.com/verify?certId=240-110-783",
@@ -61,6 +51,16 @@ const certifications = [
         title: "GitHub Administration",
         issuer: "GitHub",
         link: "https://www.credly.com/badges/f561aab0-a5e3-4c9b-b892-88e69a024728/public_url",
+    },
+    {
+        title: "IT Specialist in Java",
+        issuer: "Certiport Pearson",
+        link: "https://www.credly.com/badges/17ee233e-54bd-4955-94a4-999a9468809f/public_url",
+    },
+    {
+        title: "IT Specialist in HTML & CSS",
+        issuer: "Certiport Pearson",
+        link: "https://www.credly.com/badges/aea2b491-a0e3-4ed8-8e4b-2da4ec311639/public_url",
     },
 ];
 

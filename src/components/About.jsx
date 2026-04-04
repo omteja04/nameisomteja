@@ -1,26 +1,14 @@
 import React from "react";
+import meFormal from "../assets/me-formal.jpg";
 import bgImage from "../assets/backgroundImg1.png";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion, useInView, animate } from "framer-motion";
 const hoverColors = {
     gray: "hover:text-gray-700",
     pink: "hover:text-pink-500",
     blue: "hover:text-blue-500",
     red: "hover:text-red-700",
 };
-
-const infoBoxes = [
-    {
-        title: "B.Tech. Student",
-        subtitle: "4th Year",
-        delay: 0.2,
-    },
-    {
-        title: "CGPA",
-        subtitle: "8.13",
-        delay: 0.4,
-    },
-];
 
 const SocialIcon = ({ href, title, color, children }) => {
     const hoverColor = hoverColors[color] || "";
@@ -39,7 +27,51 @@ const SocialIcon = ({ href, title, color, children }) => {
     );
 };
 
+const AnimatedNumber = ({ to, suffix = "" }) => {
+    const nodeRef = React.useRef(null);
+    const inView = useInView(nodeRef, { once: false, amount: 0.5 });
+    const prevToRef = React.useRef(0);
+
+    React.useEffect(() => {
+        if (inView) {
+            const controls = animate(prevToRef.current, to, {
+                duration: 1,
+                ease: "easeOut",
+                onUpdate(value) {
+                    if (nodeRef.current) {
+                        nodeRef.current.textContent = Math.round(value) + suffix;
+                    }
+                },
+                onComplete() {
+                    prevToRef.current = to;
+                }
+            });
+            return () => controls.stop();
+        } else {
+            prevToRef.current = 0;
+            if (nodeRef.current) {
+                nodeRef.current.textContent = "0" + suffix;
+            }
+        }
+    }, [to, suffix, inView]);
+
+    return <span ref={nodeRef}>0{suffix}</span>;
+};
+
+const infoBoxes = [
+    {
+        title: "Final Year",
+        subtitle: "B.Tech",
+        delay: 0.2,
+    },
+    {
+        title: "Articles Published",
+        subtitle: <AnimatedNumber to={1} suffix="+" />,
+        delay: 0.4,
+    },
+];
 const About = () => {
+
     return (
         <section
             id="about"
@@ -79,52 +111,67 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="w-full flex justify-center items-center px-4 md:py-10 py-6">
-                        <div className="flex flex-col flex-wrap items-center justify-center text-white md:gap-10 sm:gap-2 gap-5">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 lg:gap-16 px-4 md:py-10 py-6 w-full">
+
+                        {/* ── LEFT: Photo ── */}
+                        <motion.div
+                            className="flex-shrink-0"
+                            initial={{ opacity: 0, x: -40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="
+                                relative
+                                w-[220px] h-[220px]
+                                sm:w-[260px] sm:h-[260px]
+                                lg:w-[300px] lg:h-[300px]
+                                rounded-2xl
+                                border-2 border-orange-400
+                                overflow-hidden
+                            ">
+                                <img
+                                    src={meFormal}
+                                    alt="Omteja Yallapragada"
+                                    className="w-full h-full object-cover object-top"
+                                />
+                            </div>
+                        </motion.div>
+
+                        {/* ── RIGHT: Text + Info boxes + Socials ── */}
+                        <div className="flex flex-col items-center md:items-start gap-6 text-white max-w-2xl">
                             <motion.p
-                                className="max-w-3xl w-9/12 md:text-lg  font-mulish leading-relaxed text-base"
+                                className="md:text-lg font-mulish leading-relaxed text-base text-center md:text-left"
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 viewport={{ once: true }}
                             >
                                 <strong>Hello! I'm Omteja Yallapragada</strong>,
-                                a final-semester Computer Science student and currently an Associate Product Engineer Intern at DeltaX.
-
-                                I actively practice data structures, algorithms, and competitive programming, which has strengthened my problem-solving skills and ability to reason about performance, edge cases, and system behavior.
-
-                                I'm particularly interested in backend engineering and system-level problems, continuously learning how real-world software scales and striving to build solutions that create meaningful impact.
+                                a final-year Computer Science student and Associate Product Engineer Intern at DeltaX. I build backend systems and APIs, with a strong focus on performance, scalability, and real-world problem solving. My experience with data structures and algorithms helps me reason about edge cases and system behavior effectively. I'm particularly interested in backend engineering and distributed systems, and I aim to build reliable, scalable software that makes a meaningful impact.
                             </motion.p>
 
                             {/* Info Boxes */}
-                            <div className="flex md:flex-row flex-col justify-center gap-6 mt-4">
+                            <div className="flex flex-row flex-wrap justify-center gap-4 w-full">
                                 {infoBoxes.map((item, index) => (
                                     <motion.div
                                         key={index}
-                                        className="bg-white/10 backdrop-blur-sm text-white md:px-6 py-4  rounded-2xl shadow-lg border border-orange-300 min-w-[200px] text-center"
+                                        className="bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-2xl shadow-lg border border-orange-300 min-w-[160px] text-center"
                                         initial={{ opacity: 0, y: 30 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        whileHover={{
-                                            scale: 1.05,
-                                            duration: 0.2,
-                                        }}
-                                        transition={{
-                                            duration: 0.5,
-                                            delay: item.delay,
-                                        }}
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ duration: 0.5, delay: item.delay }}
                                         viewport={{ once: true }}
                                     >
-                                        <div className="md:text-sm text-sm text-orange-200 font-medium">
-                                            {item.title}
-                                        </div>
-                                        <div className="md:text-2xl text-base font-bold">
-                                            {item.subtitle}
-                                        </div>
+                                        <div className="text-sm text-orange-200 font-medium">{item.title}</div>
+                                        <div className="text-2xl font-bold">{item.subtitle}</div>
                                     </motion.div>
                                 ))}
                             </div>
+
+                            {/* Social Icons */}
                             <motion.div
-                                className="flex items-center justify-center gap-6 mt-8"
+                                className="flex items-center justify-center gap-6 w-full"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.3, delay: 0.8 }}
@@ -215,6 +262,23 @@ const About = () => {
                                             strokeWidth="2"
                                             strokeLinecap="round"
                                         />
+                                    </svg>
+                                </SocialIcon>
+
+                                {/* X (Twitter) */}
+                                <SocialIcon
+                                    href="https://x.com/nameisomteja"
+                                    color="gray"
+                                    title="x.com/nameisomteja"
+                                >
+                                    <svg
+                                        fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20px"
+                                        height="20px"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
                                     </svg>
                                 </SocialIcon>
                             </motion.div>

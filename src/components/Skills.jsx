@@ -3,45 +3,35 @@ import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
 const programmingLanguages = [
-    { name: "C", icon: "mdi:language-c" },
     { name: "C++", icon: "mdi:language-cpp" },
     { name: "C#", icon: "mdi:language-csharp" },
     { name: "Java", icon: "mdi:language-java" },
-    { name: "Python", icon: "mdi:language-python" },
+    { name: "JavaScript", icon: "mdi:language-javascript" },
 ];
 
-const frontendAndBackend = [
-    { name: "HTML5", icon: "mdi:language-html5" },
-    { name: "CSS3", icon: "mdi:language-css3" },
-    { name: "JavaScript", icon: "mdi:language-javascript" },
+const frontend = [
     { name: "React", icon: "mdi:react" },
+];
+
+const backend = [
+    { name: "ASP.NET Core", icon: "mdi:dot-net" },
     { name: "Node.js", icon: "mdi:nodejs" },
     { name: "Express.js", icon: "simple-icons:express" },
 ];
 
-const databasesAndCloud = [
+const databases = [
     { name: "MySQL", icon: "simple-icons:mysql" },
     { name: "MongoDB", icon: "simple-icons:mongodb" },
+    { name: "MSSQL", icon: "simple-icons:microsoftsqlserver" },
+];
+
+const cloud = [
     { name: "AWS Cloud", icon: "mdi:aws" },
 ];
 
 const tools = [
     { name: "Git", icon: "mdi:git" },
-    { name: "GitHub", icon: "mdi:github" },
-    { name: "Figma", icon: "mdi:figma" },
-    { name: "Markdown", icon: "mdi:markdown" },
-    { name: "Postman", icon: "simple-icons:postman" },
-    { name: "VS Code", icon: "simple-icons:visualstudiocode" },
     { name: "Linux (RedHat)", icon: "mdi:linux" },
-];
-
-const softSkills = [
-    { name: "Team Collaboration", icon: "mdi:account-group" },
-    { name: "Problem Solving", icon: "mdi:wrench" },
-    { name: "Effective Communication", icon: "mdi:message-text" },
-    { name: "Time Management", icon: "mdi:timer-outline" },
-    { name: "Adaptability", icon: "mdi:sync" },
-    { name: "Critical Thinking", icon: "mdi:brain" },
 ];
 
 const SkillList = ({ items }) => (
@@ -115,25 +105,48 @@ const Skills = () => {
                         <SkillList items={programmingLanguages} />
                     </div>
 
-                    {/* Frontend & Backend */}
+                    {/* Frontend */}
                     <div>
                         <div className="flex items-center gap-3">
                             <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
                             <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
-                                Frontend & Backend
+                                Frontend
                             </h2>
                         </div>
-                        <SkillList items={frontendAndBackend} />
+                        <SkillList items={frontend} />
                     </div>
-                    {/* Databases & Cloud */}
+
+                    {/* Backend */}
                     <div>
                         <div className="flex items-center gap-3">
                             <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
                             <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
-                                Databases & Cloud
+                                Backend
                             </h2>
                         </div>
-                        <SkillList items={databasesAndCloud} />
+                        <SkillList items={backend} />
+                    </div>
+
+                    {/* Databases */}
+                    <div>
+                        <div className="flex items-center gap-3">
+                            <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
+                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
+                                Databases
+                            </h2>
+                        </div>
+                        <SkillList items={databases} />
+                    </div>
+
+                    {/* Cloud */}
+                    <div>
+                        <div className="flex items-center gap-3">
+                            <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
+                            <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
+                                Cloud
+                            </h2>
+                        </div>
+                        <SkillList items={cloud} />
                     </div>
 
                     {/* Tools */}
@@ -148,7 +161,7 @@ const Skills = () => {
                     </div>
 
                     {/* Soft Skills */}
-                    <div>
+                    {/* <div>
                         <div className="flex items-center gap-3">
                             <span className="bg-amber-400 dark:bg-orange-400 h-6 w-[0.5rem] rounded-sm"></span>
                             <h2 className="text-3xl font-semibold font-mulish text-black dark:text-white">
@@ -156,7 +169,7 @@ const Skills = () => {
                             </h2>
                         </div>
                         <SkillList items={softSkills} />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

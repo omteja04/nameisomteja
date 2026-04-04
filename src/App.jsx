@@ -9,15 +9,17 @@ import Contact from "./components/Contact";
 import FloatingResumeButton from "./components/FloatingResumeButton";
 import Experience from "./components/Experience";
 import Achievements from "./components/Achievements";
+import Blogs from "./components/Blogs";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 
 const validSections = [
     "home",
     "about",
-    "skills",
-    "experience",
     "projects",
+    "blogs",
+    "experience",
+    "skills",
     "achievements",
     "contact",
 ];
@@ -55,9 +57,10 @@ export default function App() {
                 <>
                     <Home />
                     <About />
-                    <Skills />
-                    <Experience />
                     <Projects />
+                    <Blogs />
+                    <Experience />
+                    <Skills />
                     <Achievements />
                     <Contact />
                     <Footer />
