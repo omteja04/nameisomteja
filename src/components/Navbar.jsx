@@ -97,19 +97,23 @@ const Navbar = () => {
     const linkRefs = useRef({});
 
     // Scroll spy — ONLY active on the homepage
+    // Scroll spy — ONLY active on the homepage
     const isHomePage = ["/", ...SECTION_IDS.map(id => `/${id}`)].includes(location.pathname);
-    const activeId = useScrollSpy(SECTION_IDS, isHomePage);
+    const scrollId   = useScrollSpy(SECTION_IDS, isHomePage);
+    const pathId     = location.pathname.split("/").filter(Boolean)[0];
+    const activeId   = (pathId && SECTION_IDS.includes(pathId)) ? pathId : scrollId;
 
-    // Update the orange pill position whenever activeId changes
+    // 2. Update the orange pill position whenever activeId changes
     useLayoutEffect(() => {
-        // If spy hasn't found a section yet, don't update anything or force a URL change.
-        if (!activeId) return;
-
-        if (activeId === "home") {
+        // If we have no active section, or we're at home/off-page, hide the indicator.
+        if (!activeId || activeId === "home" || !isHomePage) {
             setIndicator((prev) => ({ ...prev, visible: false }));
-            if (isHomePage) window.history.replaceState(null, "", "/");
+            if (isHomePage && activeId === "home") {
+                window.history.replaceState(null, "", "/");
+            }
             return;
         }
+
         const el = linkRefs.current[activeId];
         if (el) {
             setIndicator({ left: el.offsetLeft, width: el.offsetWidth, visible: true });

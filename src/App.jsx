@@ -24,6 +24,7 @@ import NotFound from "./components/NotFound";
 // ---------------------------------------------------------------------------
 const PortfolioPage = () => {
     const { sectionId } = useParams();
+    const location = useLocation();
     const navigate = useNavigate();
 
     // Reusable scroll function
