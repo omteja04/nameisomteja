@@ -27,39 +27,34 @@ const PortfolioPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Reusable scroll function
+    // Reusable scroll function with a broader retry window
     const performScroll = (id) => {
         const attempt = (tries = 0) => {
             const el = document.getElementById(id);
             if (el) {
                 el.scrollIntoView({ behavior: "smooth" });
-            } else if (tries < 10) {
-                setTimeout(() => attempt(tries + 1), 50);
+            } else if (tries < 15) {
+                setTimeout(() => attempt(tries + 1), 100); // 1.5s total window
             }
         };
         attempt();
     };
 
-    // 1. Initial mount — handle legacy state or direct link
+    // 1. Unified Scroll Logic — Handles both initial mount AND URL changes
     useEffect(() => {
         const target = location.state?.scrollTo || sectionId;
+
         if (target) {
-            // If it's a legacy state 'scrollTo', clear it
+            // Clean up legacy state if present
             if (location.state?.scrollTo) {
                 navigate(location.pathname, { replace: true, state: {} });
             }
             performScroll(target);
-        }
-    }, []);
-
-    // 2. Respond to URL changes (when clicking nav links)
-    useEffect(() => {
-        if (sectionId) {
-            performScroll(sectionId);
-        } else if (location.pathname === "/") {
+        } else if (location.pathname === "/" || !sectionId) {
+            // If we're truly at home and no section is targeted, go to top
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
-    }, [sectionId, location.pathname]);
+    }, [sectionId, location.pathname, location.state]);
 
     return (
         <>

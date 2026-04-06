@@ -97,11 +97,12 @@ const Navbar = () => {
     const linkRefs = useRef({});
 
     // Scroll spy — ONLY active on the homepage
-    // Scroll spy — ONLY active on the homepage
     const isHomePage = ["/", ...SECTION_IDS.map(id => `/${id}`)].includes(location.pathname);
     const scrollId   = useScrollSpy(SECTION_IDS, isHomePage);
     const pathId     = location.pathname.split("/").filter(Boolean)[0];
-    const activeId   = (pathId && SECTION_IDS.includes(pathId)) ? pathId : scrollId;
+    
+    // priority: scroll tracking > URL path fallback > "home"
+    const activeId   = scrollId || (isHomePage ? (pathId || "home") : null);
 
     // 2. Update the orange pill position whenever activeId changes
     useLayoutEffect(() => {
@@ -139,6 +140,7 @@ const Navbar = () => {
         setMobileMenuOpen(false);
         if (isHomePage) {
             window.scrollTo({ top: 0, behavior: "smooth" });
+            window.history.replaceState(null, "", "/");
         } else {
             navigate("/");
         }
