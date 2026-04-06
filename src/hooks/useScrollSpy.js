@@ -41,9 +41,11 @@ export function useScrollSpy(sectionIds, enabled) {
                     }
                 });
 
-                // Only update if we have a meaningful intersection (>5%)
-                if (bestRatio > 0.05) {
+                // Update if we have a meaningful intersection, otherwise reset to null
+                if (bestId && bestRatio > 0.05) {
                     setActiveId(bestId);
+                } else {
+                    setActiveId(null);
                 }
             },
             {

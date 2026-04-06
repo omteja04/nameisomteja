@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useScrollSpy } from "../hooks/useScrollSpy";
@@ -91,12 +91,16 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
-    // Indicator pill position (desktop)
-    const [indicator, setIndicator] = useState({ left: 0, width: 0, visible: false });
-    const linkRefs = useRef({});
+    // Track scroll for a secondary 'active' state if needed
+    useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-    // Scroll spy — ONLY active on the homepage
+    // 1. URL & State Detection
     const isHomePage = ["/", ...SECTION_IDS.map(id => `/${id}`)].includes(location.pathname);
     const scrollId   = useScrollSpy(SECTION_IDS, isHomePage);
     const pathId     = location.pathname.split("/").filter(Boolean)[0];
@@ -104,33 +108,25 @@ const Navbar = () => {
     // priority: scroll tracking > URL path fallback > "home"
     const activeId   = scrollId || (isHomePage ? (pathId || "home") : null);
 
-    // 2. Update the orange pill position whenever activeId changes
-    useLayoutEffect(() => {
-        // If we have no active section, or we're at home/off-page, hide the indicator.
-        if (!activeId || activeId === "home" || !isHomePage) {
-            setIndicator((prev) => ({ ...prev, visible: false }));
-            if (isHomePage && activeId === "home") {
+    // 2. Sync URL address bar with current active section
+    useEffect(() => {
+        if (!isHomePage || !activeId) return;
+        
+        if (activeId === "home") {
+            if (window.location.pathname !== "/") {
                 window.history.replaceState(null, "", "/");
             }
-            return;
-        }
-
-        const el = linkRefs.current[activeId];
-        if (el) {
-            setIndicator({ left: el.offsetLeft, width: el.offsetWidth, visible: true });
-            // Sync URL on scroll
-            if (isHomePage) window.history.replaceState(null, "", `/${activeId}`);
+        } else {
+            const currentPath = `/${activeId}`;
+            if (window.location.pathname !== currentPath) {
+                window.history.replaceState(null, "", currentPath);
+            }
         }
     }, [activeId, isHomePage]);
 
     // ------------------------------------------------------------------
     // Navigation handlers
     // ------------------------------------------------------------------
-    const scrollToSection = (id) => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-    };
-
     const handleSectionClick = (id) => {
         setMobileMenuOpen(false);
         navigate("/" + id);
@@ -157,57 +153,58 @@ const Navbar = () => {
                 {/* ── Top bar ───────────────────────────────────────────── */}
                 <div className="flex justify-between items-center h-[4rem] w-full px-2">
 
-                    {/* Logo */}
+                    {/* Logo Section with Glow */}
                     <button
                         onClick={handleLogoClick}
-                        className="text-2xl font-bold font-mulish pl-5 cursor-default text-white dark:text-black min-w-max transition-opacity"
+                        className="group flex items-center text-2xl font-bold font-mulish pl-6 cursor-pointer text-white dark:text-black min-w-max transition-all duration-300"
                         aria-label="Go to top"
                     >
-                        Omteja<span className="text-orange-400">.</span>
+                        <span>Omteja</span>
+                        <motion.span 
+                            animate={{ opacity: [0.6, 1, 0.6] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                            className="text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.8)]"
+                        >
+                            .
+                        </motion.span>
                     </button>
 
                     {/* ── Desktop links ─────────────────────────────────── */}
-                    <div className="hidden break:flex relative gap-1 pl-12 pr-4 items-center">
-
-                        {/* Animated active pill */}
-                        <motion.div
-                            className="absolute top-[15%] bottom-[15%] bg-orange-400 rounded-[50px] z-0"
-                            initial={false}
-                            animate={{
-                                left: indicator.visible ? indicator.left : indicator.left,
-                                width: indicator.visible ? indicator.width : indicator.width,
-                                opacity: indicator.visible ? 1 : 0,
-                                scale: indicator.visible ? 1 : 0.8,
-                            }}
-                            transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                        />
-
+                    <div className="hidden break:flex relative gap-4 pl-12 pr-6 items-center h-full">
                         {NAV_SECTIONS.map(({ label, id }) => {
                             const isActive = activeId === id;
                             return (
                                 <button
                                     key={id}
-                                    ref={(el) => (linkRefs.current[id] = el)}
                                     onClick={() => handleSectionClick(id)}
-                                    className="group relative z-10 px-3.5 py-1.5 w-fit h-fit rounded-[50px] flex justify-center items-center cursor-pointer transition-all duration-100 ease-in-out"
+                                    className="group relative px-2 py-2 flex flex-col justify-center items-center cursor-pointer transition-all active:scale-95"
                                 >
                                     <span
-                                        className={`font-mulish text-sm tracking-wide font-medium transition-colors duration-150 ${isActive
-                                            ? "text-black dark:text-white"
-                                            : "text-white group-hover:text-orange-400 dark:group-hover:text-orange-400 dark:text-black"
+                                        className={`font-mulish text-[13px] tracking-widest uppercase font-bold transition-all duration-300 relative z-10 ${isActive
+                                            ? "text-orange-400"
+                                            : "text-neutral-400 dark:text-neutral-600 group-hover:text-orange-400/80"
                                             }`}
                                     >
                                         {label}
                                     </span>
+
+                                    {/* Magnetic Underline indicator */}
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="activeUnderline"
+                                            className="absolute -bottom-1 left-0 right-0 h-[3px] bg-orange-400 rounded-full shadow-[0_0_10px_rgba(251,146,60,0.4)]"
+                                            transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                                        />
+                                    )}
                                 </button>
                             );
                         })}
 
                         {/* Dark mode toggle — desktop */}
-                        <div className="pl-2 flex items-center justify-center border-l ml-2 border-neutral-700 dark:border-neutral-200">
+                        <div className="pl-4 flex items-center justify-center border-l border-neutral-800 dark:border-neutral-300 h-8">
                             <button
                                 onClick={toggleDarkMode}
-                                className="cursor-pointer ml-2 p-2 rounded-full transition-colors text-white dark:text-black hover:text-orange-400 dark:hover:text-orange-400"
+                                className="cursor-pointer ml-1 p-2 rounded-full transition-all text-neutral-400 dark:text-neutral-600 hover:text-orange-400 dark:hover:text-orange-400 hover:bg-neutral-900/50 dark:hover:bg-neutral-100/50"
                                 title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
                             >
                                 <AnimatePresence mode="wait">
