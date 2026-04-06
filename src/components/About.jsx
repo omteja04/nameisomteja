@@ -65,7 +65,7 @@ const infoBoxes = [
         delay: 0.2,
     },
     {
-        title: "Articles Published",
+        title: "Blog Articles",
         subtitle: <AnimatedNumber to={1} suffix="+" />,
         delay: 0.4,
     },
@@ -75,7 +75,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className=" bg-white dark:bg-neutral-800 select-none scroll-mt-[20vh]  w-full max-w-full z-10 h-fit flex justify-center items-end gap-16 mx-auto"
+            className=" bg-white dark:bg-neutral-800 scroll-mt-[20vh]  w-full max-w-full z-10 h-fit flex justify-center items-end gap-16 mx-auto"
         >
             <div
                 style={{
@@ -84,8 +84,8 @@ const About = () => {
                 }}
                 className="border-2 border-white/30 z-10 md:rounded-[4rem] rounded-[2rem] h-fit -mt-12 w-full bg-cover bg-center bg-no-repeat"
             >
-                <div className="max-w-[1440px] h-[100%] mx-auto my-0 flex flex-col items-center pb-9">
-                    <div className="flex flex-col justify-center items-start pt-16 w-11/12">
+                <div className="max-w-[1440px] h-[100%] mx-auto my-0 flex flex-col items-center pb-12">
+                    <div className="flex flex-col justify-center items-start pt-20 w-11/12">
                         {/* Heading + Underline Wrapper */}
                         <div className="flex flex-col items-center gap-4">
                             {/* Animated Heading */}
@@ -111,7 +111,7 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 lg:gap-16 px-4 md:py-10 py-6 w-full">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-10 lg:gap-20 px-4 md:py-20 py-10 w-full">
 
                         {/* ── LEFT: Photo ── */}
                         <motion.div
@@ -123,10 +123,10 @@ const About = () => {
                         >
                             <div className="
                                 relative
-                                w-[220px] h-[220px]
-                                sm:w-[260px] sm:h-[260px]
-                                lg:w-[300px] lg:h-[300px]
-                                rounded-2xl
+                                w-[240px] h-[240px]
+                                sm:w-[300px] sm:h-[300px]
+                                lg:w-[340px] lg:h-[340px]
+                                rounded-[2.5rem]
                                 border-2 border-orange-400
                                 overflow-hidden
                             ">
@@ -216,7 +216,7 @@ const About = () => {
                                 </SocialIcon>
 
                                 {/* Instagram */}
-                                <SocialIcon
+                                {/* <SocialIcon
                                     href="https://instagram.com/nameisomteja"
                                     color="pink"
                                     title="instagram.com/nameisomteja"
@@ -232,7 +232,7 @@ const About = () => {
                                     >
                                         <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"></path>
                                     </svg>
-                                </SocialIcon>
+                                </SocialIcon> */}
                                 {/* E-Mail */}
                                 <SocialIcon
                                     href="mailto:yallapragadaomteja@gmail.com"
@@ -266,7 +266,7 @@ const About = () => {
                                 </SocialIcon>
 
                                 {/* X (Twitter) */}
-                                <SocialIcon
+                                {/* <SocialIcon
                                     href="https://x.com/nameisomteja"
                                     color="gray"
                                     title="x.com/nameisomteja"
@@ -280,7 +280,7 @@ const About = () => {
                                     >
                                         <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
                                     </svg>
-                                </SocialIcon>
+                                </SocialIcon> */}
                             </motion.div>
                         </div>
                     </div>

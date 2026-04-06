@@ -70,7 +70,7 @@ const Skills = () => {
     return (
         <section
             id="skills"
-            className="select-none scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800 transition-colors duration-500"
+            className="scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800 transition-colors duration-500"
         >
             <div className="max-w-[1280px] mx-auto my-0">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">
