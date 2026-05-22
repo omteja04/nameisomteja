@@ -60,13 +60,13 @@ const AnimatedNumber = ({ to, suffix = "" }) => {
 
 const infoBoxes = [
     {
-        title: "Final Year",
-        subtitle: "B.Tech",
+        title: "B.Tech Graduate",
+        subtitle: "Computer Science",
         delay: 0.2,
     },
     {
         title: "Blog Articles",
-        subtitle: <AnimatedNumber to={1} suffix="+" />,
+        subtitle: <AnimatedNumber to={2} suffix="+" />,
         delay: 0.4,
     },
 ];
@@ -82,9 +82,9 @@ const About = () => {
                     backgroundImage: `url(${bgImage})`,
                     backgroundColor: "#1f2937",
                 }}
-                className="border-2 border-white/30 z-10 md:rounded-[4rem] rounded-[2rem] h-fit -mt-12 w-full bg-cover bg-center bg-no-repeat"
+                className="border-2 border-white/30 z-10 md:rounded-[4rem] rounded-4xl h-fit -mt-12 w-full bg-cover bg-center bg-no-repeat"
             >
-                <div className="max-w-[1440px] h-[100%] mx-auto my-0 flex flex-col items-center pb-12">
+                <div className="max-w-360 h-full mx-auto my-0 flex flex-col items-center pb-12">
                     <div className="flex flex-col justify-center items-start pt-20 w-11/12">
                         {/* Heading + Underline Wrapper */}
                         <div className="flex flex-col items-center gap-4">
@@ -115,7 +115,7 @@ const About = () => {
 
                         {/* ── LEFT: Photo ── */}
                         <motion.div
-                            className="flex-shrink-0"
+                            className="shrink-0"
                             initial={{ opacity: 0, x: -40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -123,9 +123,9 @@ const About = () => {
                         >
                             <div className="
                                 relative
-                                w-[240px] h-[240px]
-                                sm:w-[300px] sm:h-[300px]
-                                lg:w-[340px] lg:h-[340px]
+                                w-60 h-60
+                                sm:w-75 sm:h-75
+                                lg:w-85 lg:h-85
                                 rounded-[2.5rem]
                                 border-2 border-orange-400
                                 overflow-hidden
@@ -148,7 +148,7 @@ const About = () => {
                                 viewport={{ once: true }}
                             >
                                 <strong>Hello! I'm Omteja Yallapragada</strong>,
-                                a final-year Computer Science student and Associate Product Engineer Intern at DeltaX. I build backend systems and APIs, with a strong focus on performance, scalability, and real-world problem solving. My experience with data structures and algorithms helps me reason about edge cases and system behavior effectively. I'm particularly interested in backend engineering and distributed systems, and I aim to build reliable, scalable software that makes a meaningful impact.
+                                a Computer Science graduate and Associate Product Engineer Intern at DeltaX. I build backend systems and APIs, with a strong focus on performance, scalability, and real-world problem solving. My experience with data structures and algorithms helps me reason about edge cases and system behavior effectively. I'm particularly interested in backend engineering and distributed systems, and I aim to build reliable, scalable software that makes a meaningful impact.
                             </motion.p>
 
                             {/* Info Boxes */}
@@ -156,7 +156,7 @@ const About = () => {
                                 {infoBoxes.map((item, index) => (
                                     <motion.div
                                         key={index}
-                                        className="bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-2xl shadow-lg border border-orange-300 min-w-[160px] text-center"
+                                        className="bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-2xl shadow-lg border border-orange-300 min-w-40 text-center"
                                         initial={{ opacity: 0, y: 30 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         whileHover={{ scale: 1.05 }}

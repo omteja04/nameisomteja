@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 
 import { allPosts, getTagDisplayData } from "../data/blogs";
@@ -25,7 +25,7 @@ const Blogs = () => {
             <div className="absolute top-20 left-0 w-96 h-96 bg-orange-300/20 dark:bg-orange-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
             <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-300/20 dark:bg-blue-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
 
-            <div className="max-w-[1280px] mx-auto relative z-10">
+            <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center mb-12 gap-3">
@@ -94,7 +94,7 @@ const Blogs = () => {
                 <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <AnimatePresence>
                         {filteredPosts.length > 0 ? (
-                            filteredPosts.map((post, index) => {
+                            filteredPosts.map((post) => {
                                 const { primary, remainingCount } = getTagDisplayData(post.tags);
                                 return (
                                     <motion.article

@@ -34,6 +34,16 @@ export const getTagDisplayData = (tags) => {
 
 export const allPosts = [
     {
+        id: "unique-constraint-database",
+        title: "Why \"Just Add a UNIQUE Constraint\" Is Not Always Enough",
+        description: "The bug that appears after your first cancellation feature. Understanding booking systems, concurrency, and real-world database design.",
+        date: "May 22, 2026",
+        readTime: "5 min read",
+        link: "https://omteja04.hashnode.dev/why-just-add-a-unique-constraint-is-not-enough",
+        tags: ["DATABASES", "SYSTEM DESIGN", "BACKEND"],
+        icon: "mdi:database",
+    },
+    {
         id: "distributed-auth",
         title: "Refresh Tokens, Load Balancers, and Distributed Auth — What Actually Happens?",
         description: "Why your authentication doesn’t break when requests hit different servers, and how real systems manage state at scale.",
