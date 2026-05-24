@@ -77,26 +77,30 @@ const Achievements = () => {
         switch (activeTab) {
             case "Coding Profiles":
                 return (
-                    <ul className="space-y-3 text-sm sm:text-base">
-                        {" "}
+                    <ul className="space-y-4 text-sm sm:text-base">
                         {codingProfiles.map((profile, idx) => (
                             <li
                                 key={idx}
-                                className="flex min-w-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
+                                className="flex min-w-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 border-b border-white/10 pb-4 last:border-0 last:pb-0"
                             >
-                                <span>
-                                    <span className="font-bold">
+                                <div className="leading-relaxed">
+                                    <span className="font-bold text-white text-base">
                                         {profile.name}
                                     </span>
-                                    : {profile.desc}
-                                </span>
+                                    <span className="text-gray-300 ml-2 text-sm sm:text-base">
+                                        {profile.desc}
+                                    </span>
+                                </div>
                                 <a
                                     href={profile.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="break-words sm:whitespace-nowrap text-orange-300 underline hover:text-orange-400 whitespace-nowrap"
+                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-orange-200 bg-orange-500/20 border border-orange-500/30 hover:bg-orange-500/40 hover:text-white transition-all rounded-full whitespace-nowrap group"
                                 >
-                                    omteja04
+                                    @omteja04
+                                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
                                 </a>
                             </li>
                         ))}
@@ -104,23 +108,26 @@ const Achievements = () => {
                 );
             case "Certifications":
                 return (
-                    <ul className="space-y-3 text-sm sm:text-base">
+                    <ul className="space-y-4 text-sm sm:text-base">
                         {certifications.map((cert, idx) => (
                             <li
                                 key={idx}
-                                className="flex min-w-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 text-white"
+                                className="flex min-w-0 flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 border-b border-white/10 pb-4 last:border-0 last:pb-0"
                             >
                                 <a
                                     href={cert.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="break-words sm:whitespace-nowrap whitespace-normal text-white hover:text-orange-200"
+                                    className="inline-flex items-center gap-2 text-white hover:text-orange-300 group transition-colors"
                                 >
-                                    <span className="font-bold">
+                                    <span className="font-bold text-base leading-snug">
                                         {cert.title}
                                     </span>
+                                    <svg className="w-4 h-4 opacity-0 -ml-2 transition-all group-hover:opacity-100 group-hover:translate-x-1 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
                                 </a>
-                                <span className="italic text-sm text-gray-300">
+                                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300 whitespace-nowrap mt-1 sm:mt-0">
                                     {cert.issuer}
                                 </span>
                             </li>
@@ -187,7 +194,7 @@ const Achievements = () => {
 
                 {/* Content Box */}
                 <motion.div
-                    className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20 w-full max-w-4xl min-h-[260px]"
+                    className="bg-white/10 backdrop-blur-lg p-6 pb-12 sm:pb-6 rounded-2xl shadow-lg border border-white/20 w-full max-w-4xl min-h-[260px]"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}

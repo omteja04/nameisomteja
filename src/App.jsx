@@ -1,22 +1,23 @@
 import { BrowserRouter as Router, useLocation, Routes, Route, useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import FloatingResumeButton from "./components/FloatingResumeButton";
 import PageTransition from "./components/PageTransition";
+import Loader from "./components/Loader";
 
 import Home from "./components/Home";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import TechnicalInsights from "./components/TechnicalInsights";
+import TechnicalWriting from "./components/TechnicalWriting";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-import Blogs from "./components/Blogs";
+import Articles from "./components/Articles";
 import NotFound from "./components/NotFound";
 
 // ---------------------------------------------------------------------------
@@ -60,9 +61,9 @@ const PortfolioPage = () => {
         <>
             <Home />
             <About />
-            <Projects />
-            <TechnicalInsights />
             <Experience />
+            <Projects />
+            <TechnicalWriting />
             <Skills />
             <Achievements />
             <Contact />
@@ -77,17 +78,17 @@ const PortfolioPage = () => {
 const AppRoutes = () => {
     const location = useLocation();
 
-    // Scroll to top whenever navigating to /blogs (full page route)
+    // Scroll to top whenever navigating to /articles (full page route)
     useEffect(() => {
-        if (location.pathname === "/blogs") {
+        if (location.pathname === "/articles") {
             window.scrollTo({ top: 0, behavior: "instant" });
         }
     }, [location.pathname]);
 
     // Logic to determine if page transition should trigger
     // Moving from / to /about should NOT trigger it.
-    // Moving from / to /blogs SHOULD trigger it.
-    const isFullPage = ["/blogs", "/404"].includes(location.pathname);
+    // Moving from / to /articles SHOULD trigger it.
+    const isFullPage = ["/articles", "/404"].includes(location.pathname);
     const transitionKey = isFullPage ? location.pathname : "portfolio";
 
     return (
@@ -97,12 +98,12 @@ const AppRoutes = () => {
 
             <AnimatePresence mode="wait" initial={false}>
                 <Routes location={location} key={transitionKey}>
-                    {/* Full-page blog route */}
+                    {/* Full-page article route */}
                     <Route
-                        path="/blogs"
+                        path="/articles"
                         element={
                             <PageTransition>
-                                <Blogs />
+                                <Articles />
                             </PageTransition>
                         }
                     />
@@ -130,9 +131,25 @@ const AppRoutes = () => {
 // App root
 // ---------------------------------------------------------------------------
 export default function App() {
+    const [isLoading, setIsLoading] = useState(true);
+
     return (
         <Router>
-            <AppRoutes />
+            <AnimatePresence mode="wait">
+                {isLoading ? (
+                    <Loader key="loader" onComplete={() => setIsLoading(false)} />
+                ) : (
+                    <motion.div
+                        key="main-app"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full h-full"
+                    >
+                        <AppRoutes />
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </Router>
     );
 }

@@ -3,21 +3,21 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
-import { allPosts, getTagDisplayData } from "../data/blogs";
+import { allPosts, getTagDisplayData } from "../data/articles";
 
-const TechnicalInsights = () => {
+const TechnicalWriting = () => {
     // Only display the 3 most recent posts from our central store
     const recentPosts = allPosts.slice(0, 3);
     return (
         <section
-            id="insights"
+            id="writing"
             className="relative scroll-mt-[10vh] py-20 px-6 sm:px-12 lg:px-24 bg-neutral-50 dark:bg-neutral-900 transition-colors duration-500 overflow-hidden"
         >
             {/* Ambient Background Glow */}
-            <div className="absolute top-40 left-0 w-96 h-96 bg-orange-300/20 dark:bg-orange-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
-            <div className="absolute bottom-40 right-0 w-96 h-96 bg-blue-300/20 dark:bg-blue-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
+            <div className="absolute top-40 left-0 w-96 h-96 bg-orange-300/20 dark:bg-orange-500/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
+            <div className="absolute bottom-40 right-0 w-96 h-96 bg-blue-300/20 dark:bg-blue-500/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
 
-            <div className="max-w-[1280px] mx-auto relative z-10">
+            <div className="max-w-7xl mx-auto relative z-10">
                 {/* Header Section */}
                 <div className="flex flex-col items-center justify-center mb-16 gap-3">
                     <motion.h1
@@ -28,7 +28,7 @@ const TechnicalInsights = () => {
                         viewport={{ once: true }}
                     >
                         Technical{" "}
-                        <span className="text-orange-400">Insights</span>
+                        <span className="text-orange-400">Writing</span>
                     </motion.h1>
                     <motion.span
                         className="h-1 bg-orange-400"
@@ -42,7 +42,7 @@ const TechnicalInsights = () => {
                     </p>
                 </div>
 
-                {/* Blog Grid */}
+                {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {recentPosts.map((post, index) => {
                         const { primary, remainingCount } = getTagDisplayData(post.tags);
@@ -58,7 +58,7 @@ const TechnicalInsights = () => {
                                 {/* Card Content */}
                                 <div className="p-8 flex flex-col h-full relative overflow-hidden">
                                     {/* Subtle Background Icon */}
-                                    <div className="absolute -right-4 -top-4 opacity-[0.03] dark:opacity-[0.05] pointer-events-none group-hover:scale-110 transition-transform duration-500">
+                                    <div className="absolute -right-4 -top-4 opacity-[0.03] dark:opacity-10 text-black dark:text-white pointer-events-none group-hover:scale-110 transition-transform duration-500">
                                         <Icon icon={post.icon} className="text-9xl" />
                                     </div>
 
@@ -95,10 +95,12 @@ const TechnicalInsights = () => {
                                             href={post.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-1.5 text-orange-400 font-bold text-sm hover:gap-2.5 transition-all duration-300"
+                                            className="inline-flex items-center gap-1.5 text-orange-400 font-bold text-sm transition-all duration-300"
                                         >
                                             Read
-                                            <Icon icon="fluent:arrow-right-16-filled" />
+                                            <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
                                         </a>
                                     </div>
                                 </div>
@@ -109,7 +111,7 @@ const TechnicalInsights = () => {
 
                 {/* View All CTA */}
                 <motion.div
-                    className="mt-12 flex justify-center"
+                    className="mt-8 flex justify-center"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -121,7 +123,7 @@ const TechnicalInsights = () => {
                         transition={{ type: "spring", stiffness: 350, damping: 20 }}
                     >
                         <Link
-                            to="/blogs"
+                            to="/articles"
                             className="flex items-center gap-2 px-8 py-3 bg-neutral-900 dark:bg-white text-white dark:text-black font-bold font-mulish rounded-full hover:bg-black dark:hover:bg-neutral-900 dark:hover:text-white transition-colors duration-200"
                         >
                             View More Articles
@@ -134,4 +136,4 @@ const TechnicalInsights = () => {
     );
 };
 
-export default TechnicalInsights;
+export default TechnicalWriting;

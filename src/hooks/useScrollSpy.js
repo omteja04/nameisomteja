@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
  * Uses IntersectionObserver for performance (runs off the main thread).
  *
  * @param {string[]} sectionIds  - Array of element IDs to observe
- * @param {boolean}  enabled     - When false (e.g. on /blogs), observer is disconnected
+ * @param {boolean}  enabled     - When false (e.g. on /articles), observer is disconnected
  *                                 and activeId resets to null immediately.
  * @returns {string|null}        - The ID of the currently active section, or null
  */

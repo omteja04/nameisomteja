@@ -9,14 +9,13 @@ import { useScrollSpy } from "../hooks/useScrollSpy";
 // ---------------------------------------------------------------------------
 const NAV_SECTIONS = [
     { label: "About", id: "about" },
-    { label: "Projects", id: "projects" },
-    { label: "Insights", id: "insights" },
     { label: "Experience", id: "experience" },
+    { label: "Projects", id: "projects" },
+    { label: "Writing", id: "writing" },
     { label: "Skills", id: "skills" },
     { label: "Achievements", id: "achievements" },
     { label: "Contact", id: "contact" },
 ];
-
 const SECTION_IDS = ["home", ...NAV_SECTIONS.map((s) => s.id)];
 
 // ---------------------------------------------------------------------------
@@ -102,16 +101,16 @@ const Navbar = () => {
 
     // 1. URL & State Detection
     const isHomePage = ["/", ...SECTION_IDS.map(id => `/${id}`)].includes(location.pathname);
-    const scrollId   = useScrollSpy(SECTION_IDS, isHomePage);
-    const pathId     = location.pathname.split("/").filter(Boolean)[0];
-    
+    const scrollId = useScrollSpy(SECTION_IDS, isHomePage);
+    const pathId = location.pathname.split("/").filter(Boolean)[0];
+
     // priority: scroll tracking > URL path fallback > "home"
-    const activeId   = scrollId || (isHomePage ? (pathId || "home") : null);
+    const activeId = scrollId || (isHomePage ? (pathId || "home") : null);
 
     // 2. Sync URL address bar with current active section
     useEffect(() => {
         if (!isHomePage || !activeId) return;
-        
+
         if (activeId === "home") {
             if (window.location.pathname !== "/") {
                 window.history.replaceState(null, "", "/");
@@ -160,7 +159,7 @@ const Navbar = () => {
                         aria-label="Go to top"
                     >
                         <span>Omteja</span>
-                        <motion.span 
+                        <motion.span
                             animate={{ opacity: [0.6, 1, 0.6] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                             className="text-orange-400 drop-shadow-[0_0_8px_rgba(251,146,60,0.8)]"
@@ -182,7 +181,7 @@ const Navbar = () => {
                                     <span
                                         className={`font-mulish text-[13px] tracking-widest uppercase font-bold transition-all duration-300 relative z-10 ${isActive
                                             ? "text-orange-400"
-                                            : "text-neutral-400 dark:text-neutral-600 group-hover:text-orange-400/80"
+                                            : "text-neutral-400 dark:text-neutral-800 group-hover:text-orange-400/80"
                                             }`}
                                     >
                                         {label}
@@ -254,7 +253,7 @@ const Navbar = () => {
                                                 onClick={() => handleSectionClick(id)}
                                                 className={`w-full text-left block py-3 px-5 rounded-2xl font-mulish font-bold text-lg transition-colors duration-150 ${isActive
                                                     ? "bg-orange-400 text-black dark:text-white"
-                                                    : "text-neutral-300 hover:bg-neutral-800 dark:text-neutral-600 dark:hover:bg-neutral-100"
+                                                    : "text-neutral-300 hover:bg-neutral-800 dark:text-neutral-800 dark:hover:bg-neutral-100"
                                                     }`}
                                             >
                                                 {label}

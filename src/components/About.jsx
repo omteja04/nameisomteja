@@ -60,13 +60,13 @@ const AnimatedNumber = ({ to, suffix = "" }) => {
 
 const infoBoxes = [
     {
-        title: "B.Tech Graduate",
-        subtitle: "Computer Science",
+        title: "Projects",
+        subtitle: <AnimatedNumber to={4} suffix="+" />,
         delay: 0.2,
     },
     {
-        title: "Blog Articles",
-        subtitle: <AnimatedNumber to={2} suffix="+" />,
+        title: "Articles",
+        subtitle: <AnimatedNumber to={3} suffix="+" />,
         delay: 0.4,
     },
 ];
@@ -75,7 +75,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className=" bg-white dark:bg-neutral-800 scroll-mt-[20vh]  w-full max-w-full z-10 h-fit flex justify-center items-end gap-16 mx-auto"
+            className=" bg-[#F2F4F7] dark:bg-[#0F1115] scroll-mt-[20vh]  w-full max-w-full z-10 h-fit flex justify-center items-end gap-16 mx-auto"
         >
             <div
                 style={{
@@ -148,8 +148,7 @@ const About = () => {
                                 viewport={{ once: true }}
                             >
                                 <strong>Hello! I'm Omteja Yallapragada</strong>,
-                                a Computer Science graduate and Associate Product Engineer Intern at DeltaX. I build backend systems and APIs, with a strong focus on performance, scalability, and real-world problem solving. My experience with data structures and algorithms helps me reason about edge cases and system behavior effectively. I'm particularly interested in backend engineering and distributed systems, and I aim to build reliable, scalable software that makes a meaningful impact.
-                            </motion.p>
+                                a Computer Science graduate and Associate Product Engineer Intern at DeltaX. I specialize in backend development, building scalable APIs and systems with a strong focus on performance, reliability, and clean architecture. With a solid foundation in data structures and algorithms, I enjoy solving complex engineering problems and understanding how systems behave at scale. I'm particularly interested in backend engineering, distributed systems, and designing software that delivers real-world impact.                            </motion.p>
 
                             {/* Info Boxes */}
                             <div className="flex flex-row flex-wrap justify-center gap-4 w-full">

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 
-import { allPosts, getTagDisplayData } from "../data/blogs";
+import { allPosts, getTagDisplayData } from "../data/articles";
 
 const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags.map(t => t.toUpperCase())))].sort();
 const categories = ["All", ...uniqueTags];
 
-const Blogs = () => {
+const Articles = () => {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -20,7 +20,7 @@ const Blogs = () => {
     });
 
     return (
-        <section id="blogs" className="min-h-screen pt-32 pb-20 px-6 sm:px-12 lg:px-24 bg-white dark:bg-neutral-800 transition-colors duration-500 relative overflow-hidden">
+        <section id="articles" className="min-h-screen pt-32 pb-20 px-6 sm:px-12 lg:px-24 bg-white dark:bg-neutral-800 transition-colors duration-500 relative overflow-hidden">
             {/* Ambient Background Glow */}
             <div className="absolute top-20 left-0 w-96 h-96 bg-orange-300/20 dark:bg-orange-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
             <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-300/20 dark:bg-blue-900/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-70 pointer-events-none"></div>
@@ -171,4 +171,4 @@ const Blogs = () => {
     );
 };
 
-export default Blogs;
+export default Articles;

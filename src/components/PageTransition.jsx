@@ -31,7 +31,7 @@ const variants = {
  *
  * @example
  * <PageTransition key={location.pathname}>
- *   <Blogs />
+ *   <Articles />
  * </PageTransition>
  */
 const PageTransition = ({ children }) => {

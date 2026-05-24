@@ -11,6 +11,8 @@ const programmingLanguages = [
 
 const frontend = [
     { name: "React", icon: "mdi:react" },
+    { name: "Vue.js", icon: "mdi:vuejs" },
+    { name: "Tailwind CSS", icon: "simple-icons:tailwindcss" },
 ];
 
 const backend = [
@@ -72,7 +74,7 @@ const Skills = () => {
             id="skills"
             className="scroll-mt-[10vh] py-10 pb-16 w-full max-w-full z-10 h-fit gap-16 mx-auto bg-white dark:bg-neutral-800 transition-colors duration-500"
         >
-            <div className="max-w-[1280px] mx-auto my-0">
+            <div className="max-w-7xl mx-auto my-0 ">
                 <div className="flex flex-col items-center justify-center pt-4 gap-3">
                     <motion.h1
                         className="text-black dark:text-white text-3xl sm:text-4xl md:text-5xl font-bold font-mulish text-center "

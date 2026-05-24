@@ -67,7 +67,7 @@ const Home = () => {
                     initial={false}
                 >
                     <p className="text-sm sm:text-base font-medium font-mulish select-none text-slate-700 dark:text-gray-200">
-                        A soon-to-be Computer Science graduate<br />
+                        A Computer Science graduate<br />
                         passionate about building impactful<br />
                         digital solutions.
                     </p>
